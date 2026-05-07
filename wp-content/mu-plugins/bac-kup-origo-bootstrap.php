@@ -31,8 +31,8 @@ function bac_kup_origo_map(): array
 function bac_kup_origo_url_replacements(): array
 {
     return [
-        'https://origo.care/index.html' => home_url('/'),
-        'https://origo.care/' => home_url('/'),
+        'https://bac-kup.care/index.html' => home_url('/'),
+        'https://bac-kup.care/' => home_url('/'),
         '/index.html' => home_url('/'),
         'index.html' => home_url('/'),
         '/abonnementen.html' => home_url('/abonnementen/'),
