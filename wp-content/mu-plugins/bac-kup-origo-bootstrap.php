@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: Bac-kup Origo Import Bootstrap
- * Description: Imports Origo pages into WordPress and configures the Bac-kup clone theme.
+ * Plugin Name: Bac-kup Bac-kup Import Bootstrap
+ * Description: Imports Bac-kup pages into WordPress and configures the Bac-kup clone theme.
  */
 
 if (!defined('ABSPATH')) {

@@ -192,7 +192,7 @@ function bac_kup_build_global_footer_elementor_data(): array
             '_css_classes' => 'footer-logo-link',
         ]),
         bac_kup_widget('text-editor', ['editor' => '<p class="ftr-tagline">Procesregie voor het MKB. Helder, schaalbaar en zonder onnodige lagen.</p>']),
-        bac_kup_widget('text-editor', ['editor' => '<p class="ftr-disclaimer">Origo levert procesondersteuning en verwerkt geen medische gegevens. Werkgever blijft verantwoordelijk voor regie en UWV-dossieropbouw.</p>']),
+        bac_kup_widget('text-editor', ['editor' => '<p class="ftr-disclaimer">Bac-kup levert procesondersteuning en verwerkt geen medische gegevens. Werkgever blijft verantwoordelijk voor regie en UWV-dossieropbouw.</p>']),
     ]);
 
     $col2 = bac_kup_container(array_merge([
@@ -393,7 +393,7 @@ add_action('admin_notices', function (): void {
     }
 
     if (get_option('bac_kup_origo_imported') !== '1') {
-        echo '<div class="notice notice-warning"><p><strong>Bac-kup:</strong> de Origo import is nog niet uitgevoerd. Ga naar een willekeurige admin pagina om de MU-plugin de import te laten doen.</p></div>';
+        echo '<div class="notice notice-warning"><p><strong>Bac-kup:</strong> de Bac-kup import is nog niet uitgevoerd. Ga naar een willekeurige admin pagina om de MU-plugin de import te laten doen.</p></div>';
     }
 
     $header_id = (int) get_option('bac_kup_global_header_page_id', 0);

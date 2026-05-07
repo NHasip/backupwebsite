@@ -19,8 +19,8 @@
   const navHTML = `
 <nav id="mainNav" role="navigation" aria-label="Hoofdnavigatie">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo" aria-label="Origo – terug naar home">
-      <img src="logo.png" alt="Origo" class="nav-logo-img">
+    <a href="index.html" class="nav-logo" aria-label="Bac-kup – terug naar home">
+      <img src="logo.png" alt="Bac-kup" class="nav-logo-img">
     </a>
     <ul class="nav-links" role="list">
       ${pages.map(p => `<li><a href="${p.href}"${cur === p.href ? ' class="active" aria-current="page"' : ''}>${p.label}</a></li>`).join('')}
@@ -55,11 +55,11 @@
   <div class="footer-wrap">
     <div class="footer-grid">
       <div>
-        <a href="index.html" class="footer-logo-link" aria-label="Origo home">
-          <img src="logo.png" alt="Origo" class="footer-logo-img">
+        <a href="index.html" class="footer-logo-link" aria-label="Bac-kup home">
+          <img src="logo.png" alt="Bac-kup" class="footer-logo-img">
         </a>
         <p class="ftr-tagline">Procesregie voor het MKB. Helder, schaalbaar en zonder onnodige lagen.</p>
-        <p class="ftr-disclaimer">Origo levert procesondersteuning en verwerkt geen medische gegevens. Werkgever blijft verantwoordelijk voor regie en UWV-dossieropbouw.</p>
+        <p class="ftr-disclaimer">Bac-kup levert procesondersteuning en verwerkt geen medische gegevens. Werkgever blijft verantwoordelijk voor regie en UWV-dossieropbouw.</p>
       </div>
       <div>
         <span class="ftr-col-title">Diensten</span>
@@ -91,7 +91,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span class="ftr-copy">© Origo B.V. — Anne Frankstraat 35, 2548LA 's-Gravenhage — KvK 99878232</span>
+      <span class="ftr-copy">© Bac-kup B.V. — Anne Frankstraat 35, 2548LA 's-Gravenhage — KvK 99878232</span>
       <span class="ftr-copy">origo.care · Geen tracking · Geen advertenties</span>
     </div>
   </div>

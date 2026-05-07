@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
           <img src="<?php echo esc_url(bac_kup_logo_url()); ?>" alt="Bac-kup" class="footer-logo-img">
         </a>
         <p class="ftr-tagline">Procesregie voor het MKB. Helder, schaalbaar en zonder onnodige lagen.</p>
-        <p class="ftr-disclaimer">Origo levert procesondersteuning en verwerkt geen medische gegevens. Werkgever blijft verantwoordelijk voor regie en UWV-dossieropbouw.</p>
+        <p class="ftr-disclaimer">Bac-kup levert procesondersteuning en verwerkt geen medische gegevens. Werkgever blijft verantwoordelijk voor regie en UWV-dossieropbouw.</p>
       </div>
       <div>
         <span class="ftr-col-title">Diensten</span>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inschrijven — Origo</title>
+<title>Inschrijven — Bac-kup</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/png" href="/img/favicon-96x96.png" sizes="96x96">
 <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
@@ -131,8 +131,8 @@
 <!-- NAV -->
 <nav id="mainNav" role="navigation" aria-label="Hoofdnavigatie">
   <div class="nav-inner">
-    <a href="/index.html" class="nav-logo" aria-label="Origo – terug naar home">
-      <img src="/logo.png" alt="Origo" class="nav-logo-img">
+    <a href="/index.html" class="nav-logo" aria-label="Bac-kup – terug naar home">
+      <img src="/logo.png" alt="Bac-kup" class="nav-logo-img">
     </a>
     <ul class="nav-links" role="list">
       <li><a href="/abonnementen.html">Abonnementen</a></li>
@@ -307,7 +307,7 @@
                   required>
           <label for="terms">
             Ik ga akkoord met de <a href="/algemene-voorwaarden.html" target="_blank">algemene voorwaarden</a>
-            en <a href="/privacyverklaring.html" target="_blank">privacyverklaring</a> van Origo B.V.
+            en <a href="/privacyverklaring.html" target="_blank">privacyverklaring</a> van Bac-kup B.V.
           </label>
         </div>
 
