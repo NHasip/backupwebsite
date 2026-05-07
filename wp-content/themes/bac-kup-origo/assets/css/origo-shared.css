@@ -319,6 +319,18 @@ footer { background: #0d1810; padding: 4rem var(--px) 2.2rem; }
   grid-template-columns: 2fr 1fr 1fr 1fr !important;
   gap: 3rem !important;
 }
+.elementor .bk-editable-footer .footer-grid.e-con > .e-con:first-child {
+  --display: flex;
+  --flex-direction: column;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  gap: 0 !important;
+}
+.elementor .bk-editable-footer .footer-grid.e-con > .e-con:first-child .footer-logo-link {
+  align-self: flex-start !important;
+}
 .elementor .bk-editable-footer .ftr-col.e-con {
   --display: block;
   display: block !important;
