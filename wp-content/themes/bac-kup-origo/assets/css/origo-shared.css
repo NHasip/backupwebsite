@@ -330,6 +330,7 @@ footer { background: #0d1810; padding: 4rem var(--px) 2.2rem; }
 }
 .elementor .bk-editable-footer .footer-grid.e-con > .e-con:first-child .footer-logo-link {
   align-self: center !important;
+  transform: translateX(22px);
 }
 .elementor .bk-editable-footer .footer-grid.e-con > .e-con:first-child .ftr-tagline,
 .elementor .bk-editable-footer .footer-grid.e-con > .e-con:first-child .ftr-disclaimer {
