@@ -734,6 +734,158 @@ function bac_kup_origo_replace_in_value($value, array $search, array $replace, i
     return $value;
 }
 
+function bac_kup_origo_button_link_replacements(): array
+{
+    $replacements = bac_kup_origo_url_replacements();
+    $contact_url = home_url('/contact/');
+
+    $replacements['/portal/inschrijven.php'] = $contact_url;
+    $replacements['portal/inschrijven.php'] = $contact_url;
+    $replacements['https://bac-kup.care/portal/inschrijven.php'] = $contact_url;
+    $replacements['http://bac-kup.care/portal/inschrijven.php'] = $contact_url;
+    $replacements['https://www.bac-kup.care/portal/inschrijven.php'] = $contact_url;
+    $replacements['http://www.bac-kup.care/portal/inschrijven.php'] = $contact_url;
+
+    return $replacements;
+}
+
+function bac_kup_origo_fix_button_links_in_database(): array
+{
+    global $wpdb;
+
+    $map = bac_kup_origo_button_link_replacements();
+    $search = array_keys($map);
+    $replace = array_values($map);
+    $needles = [
+        'portal/inschrijven.php',
+        'index.html',
+        'abonnementen.html',
+        'werkwijze.html',
+        'artsroute.html',
+        'tarieven.html',
+        'overons.html',
+        'faq.html',
+        'contact.html',
+        'privacyverklaring.html',
+        'cookieverklaring.html',
+        'disclaimer.html',
+        'klachtenregeling.html',
+        'algemene-voorwaarden.html',
+        'colofon.html',
+        'bac-kup.care/',
+    ];
+
+    $post_where = implode(' OR ', array_map(
+        static fn($needle): string => "post_content LIKE '%" . esc_sql($needle) . "%' OR post_excerpt LIKE '%" . esc_sql($needle) . "%'",
+        $needles
+    ));
+    $meta_where = implode(' OR ', array_map(
+        static fn($needle): string => "meta_value LIKE '%" . esc_sql($needle) . "%'",
+        $needles
+    ));
+    $option_where = implode(' OR ', array_map(
+        static fn($needle): string => "option_value LIKE '%" . esc_sql($needle) . "%'",
+        $needles
+    ));
+
+    $report = [
+        'posts_rows_updated' => 0,
+        'postmeta_rows_updated' => 0,
+        'options_rows_updated' => 0,
+        'total_replacements' => 0,
+    ];
+
+    $post_rows = $wpdb->get_results(
+        "SELECT ID, post_title, post_excerpt, post_content
+         FROM {$wpdb->posts}
+         WHERE {$post_where}",
+        ARRAY_A
+    );
+
+    foreach ($post_rows as $row) {
+        $count = 0;
+        $new_title = bac_kup_origo_replace_in_value($row['post_title'], $search, $replace, $count);
+        $new_excerpt = bac_kup_origo_replace_in_value($row['post_excerpt'], $search, $replace, $count);
+        $new_content = bac_kup_origo_replace_in_value($row['post_content'], $search, $replace, $count);
+
+        if ($count > 0) {
+            $wpdb->update(
+                $wpdb->posts,
+                [
+                    'post_title' => $new_title,
+                    'post_excerpt' => $new_excerpt,
+                    'post_content' => $new_content,
+                ],
+                ['ID' => (int) $row['ID']],
+                ['%s', '%s', '%s'],
+                ['%d']
+            );
+            $report['posts_rows_updated']++;
+            $report['total_replacements'] += $count;
+        }
+    }
+
+    $meta_rows = $wpdb->get_results(
+        "SELECT meta_id, meta_value
+         FROM {$wpdb->postmeta}
+         WHERE {$meta_where}",
+        ARRAY_A
+    );
+
+    foreach ($meta_rows as $row) {
+        $count = 0;
+        $raw = $row['meta_value'];
+        $value = maybe_unserialize($raw);
+        $new_value = bac_kup_origo_replace_in_value($value, $search, $replace, $count);
+        $new_raw = maybe_serialize($new_value);
+
+        if ($count > 0 && $new_raw !== $raw) {
+            $wpdb->update(
+                $wpdb->postmeta,
+                ['meta_value' => $new_raw],
+                ['meta_id' => (int) $row['meta_id']],
+                ['%s'],
+                ['%d']
+            );
+            $report['postmeta_rows_updated']++;
+            $report['total_replacements'] += $count;
+        }
+    }
+
+    $option_rows = $wpdb->get_results(
+        "SELECT option_id, option_value
+         FROM {$wpdb->options}
+         WHERE {$option_where}",
+        ARRAY_A
+    );
+
+    foreach ($option_rows as $row) {
+        $count = 0;
+        $raw = $row['option_value'];
+        $value = maybe_unserialize($raw);
+        $new_value = bac_kup_origo_replace_in_value($value, $search, $replace, $count);
+        $new_raw = maybe_serialize($new_value);
+
+        if ($count > 0 && $new_raw !== $raw) {
+            $wpdb->update(
+                $wpdb->options,
+                ['option_value' => $new_raw],
+                ['option_id' => (int) $row['option_id']],
+                ['%s'],
+                ['%d']
+            );
+            $report['options_rows_updated']++;
+            $report['total_replacements'] += $count;
+        }
+    }
+
+    if (function_exists('wp_cache_flush')) {
+        wp_cache_flush();
+    }
+
+    return $report;
+}
+
 function bac_kup_origo_replace_branding_in_database(): array
 {
     global $wpdb;
@@ -859,10 +1011,27 @@ add_action('admin_init', function (): void {
     $force = isset($_GET['bac_kup_rebuild_widgets']) && $_GET['bac_kup_rebuild_widgets'] === '1';
     bac_kup_origo_import_execute($force);
 
+    if (get_option('bac_kup_fix_button_links_done') !== '1') {
+        $auto_link_report = bac_kup_origo_fix_button_links_in_database();
+        update_option('bac_kup_fix_button_links_report', $auto_link_report, false);
+        update_option('bac_kup_fix_button_links_done', '1', false);
+    }
+
     $replace = isset($_GET['bac_kup_replace_origo']) && $_GET['bac_kup_replace_origo'] === '1';
     if ($replace) {
         $report = bac_kup_origo_replace_branding_in_database();
         update_option('bac_kup_replace_origo_report', $report, false);
+
+        $link_report = bac_kup_origo_fix_button_links_in_database();
+        update_option('bac_kup_fix_button_links_report', $link_report, false);
+        update_option('bac_kup_fix_button_links_done', '1', false);
         delete_option('bac_kup_origo_imported');
+    }
+
+    $fix_links = isset($_GET['bac_kup_fix_button_links']) && $_GET['bac_kup_fix_button_links'] === '1';
+    if ($fix_links) {
+        $link_report = bac_kup_origo_fix_button_links_in_database();
+        update_option('bac_kup_fix_button_links_report', $link_report, false);
+        update_option('bac_kup_fix_button_links_done', '1', false);
     }
 });
