@@ -77,7 +77,7 @@ function bac_kup_logo_url(): string
         }
     }
 
-    return get_template_directory_uri() . '/assets/img/logo-origo.png';
+    return home_url('/logo.png');
 }
 
 function bac_kup_global_part_option_key(string $part): string

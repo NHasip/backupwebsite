@@ -21,13 +21,13 @@
 }
 
 .footer-logo-img {
-  filter: none;
-  opacity: 1;
+  filter: brightness(0) invert(1);
+  opacity: .9;
 }
 
-img[alt="Bac-kup"],
-img[src*="logo.png"] {
-  content: url('../img/logo-origo.png');
+.nav-logo-img {
+  filter: none;
+  opacity: 1;
 }
 
 body.admin-bar nav {

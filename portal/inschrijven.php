@@ -100,7 +100,7 @@
 <nav id="mainNav" role="navigation" aria-label="Hoofdnavigatie">
   <div class="nav-inner">
     <a href="/" class="nav-logo" aria-label="Bac-kup terug naar home">
-      <img src="/wp-content/themes/bac-kup-origo/assets/img/logo-origo.png" alt="Bac-kup" class="nav-logo-img">
+      <img src="/logo.png" alt="Bac-kup" class="nav-logo-img">
     </a>
     <ul class="nav-links" role="list">
       <li><a href="/">Home</a></li>
