@@ -324,12 +324,18 @@ footer { background: #0d1810; padding: 4rem var(--px) 2.2rem; }
   --flex-direction: column;
   display: flex !important;
   flex-direction: column !important;
-  align-items: flex-start !important;
+  align-items: center !important;
   justify-content: flex-start !important;
   gap: 0 !important;
 }
 .elementor .bk-editable-footer .footer-grid.e-con > .e-con:first-child .footer-logo-link {
-  align-self: flex-start !important;
+  align-self: center !important;
+}
+.elementor .bk-editable-footer .footer-grid.e-con > .e-con:first-child .ftr-tagline,
+.elementor .bk-editable-footer .footer-grid.e-con > .e-con:first-child .ftr-disclaimer {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: left !important;
 }
 .elementor .bk-editable-footer .ftr-col.e-con {
   --display: block;
