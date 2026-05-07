@@ -41,7 +41,12 @@
 /* Keep menu aligned after logo removal. */
 .nav-inner,
 .elementor .bk-editable-header .nav-inner.e-con {
-  justify-content: flex-end !important;
+  justify-content: center !important;
+}
+
+.nav-inner > .nav-links,
+.elementor .bk-editable-header .nav-inner.e-con > .nav-links {
+  margin-inline: auto !important;
 }
 
 /* Remove footer output entirely, including Elementor global footer remnants. */

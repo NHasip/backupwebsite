@@ -93,6 +93,8 @@
 .review-value { font-size:.9rem;color:var(--ink);font-weight:600;word-break:break-word; }
 .success-box { display:none;background:#ecfdf5;border:1px solid #86efac;border-radius:12px;padding:1rem 1.2rem;margin-bottom:1.4rem;color:#166534;font-size:.88rem; }
 .success-box.show { display:block; }
+/* Hard fallback: this portal page should never render a site footer. */
+footer, .footer-wrap, .footer-grid, .footer-bottom { display:none !important; }
 @media(max-width:560px){ .review-grid{grid-template-columns:1fr} }
 </style>
 </head>
