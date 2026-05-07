@@ -327,10 +327,11 @@ footer { background: #0d1810; padding: 4rem var(--px) 2.2rem; }
   align-items: center !important;
   justify-content: flex-start !important;
   gap: 0 !important;
+  padding-left: clamp(16px, 2.2vw, 40px) !important;
 }
 .elementor .bk-editable-footer .footer-grid.e-con > .e-con:first-child .footer-logo-link {
   align-self: center !important;
-  transform: translateX(22px);
+  transform: translateX(0) !important;
 }
 .elementor .bk-editable-footer .footer-grid.e-con > .e-con:first-child .ftr-tagline,
 .elementor .bk-editable-footer .footer-grid.e-con > .e-con:first-child .ftr-disclaimer {
@@ -381,6 +382,7 @@ footer { background: #0d1810; padding: 4rem var(--px) 2.2rem; }
   .elementor .bk-editable-header .nav-links.e-con { display: flex !important; width: 100% !important; justify-content: flex-start !important; flex-wrap: wrap !important; }
   .elementor .bk-editable-footer .footer-grid.e-con { grid-template-columns: 1fr !important; gap: 1.8rem !important; }
   .elementor .bk-editable-footer .footer-bottom.e-con { flex-direction: column !important; align-items: flex-start !important; }
+  .elementor .bk-editable-footer .footer-grid.e-con > .e-con:first-child { padding-left: 0 !important; }
 }
 
 @media (max-width: 480px) {
