@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abonnementen | Vaste maandprijzen — Origo</title>
+<meta name="description" content="Vaste maandprijzen op basis van bedrijfsgrootte: 1–5 medewerkers €65, 6–10 medewerkers €99, 11–20 medewerkers €150 per maand. Procesregie voor verzuim in het MKB.">
+<meta name="robots" content="index, follow">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<link rel="canonical" href="https://origo.care/abonnementen.html">
+<link rel="icon" type="image/png" href="/img/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
+<link rel="shortcut icon" href="/img/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Origo" />
+<link rel="manifest" href="/img/site.webmanifest" />
+<meta property="og:site_name" content="Origo">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://origo.care/abonnementen.html">
+<meta property="og:title" content="Abonnementen | Vaste maandprijzen — Origo">
+<meta property="og:description" content="Vaste maandprijzen op basis van bedrijfsgrootte: €65, €99 of €150 per maand. Procesregie voor verzuim in het MKB.">
+<meta property="og:image" content="https://origo.care/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Abonnementen | Vaste maandprijzen — Origo">
+<meta name="twitter:description" content="Vaste maandprijzen: €65, €99 of €150 per maand. Procesregie voor verzuim in het MKB.">
+<meta name="twitter:image" content="https://origo.care/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap">
+<link rel="stylesheet" href="shared.css">
+<style>
+.plans { background: var(--cream); }
+.plans-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+@media(max-width:900px){ .plans-grid{grid-template-columns:1fr 1fr} }
+.plan { border-radius: 22px; padding: 2.4rem; position: relative; overflow: hidden; transition: transform .25s, box-shadow .25s; }
+.plan:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.plan.std { background: var(--white); border: 1.5px solid rgba(168,212,204,.28); }
+.plan.feat { background: var(--green); border: 1.5px solid rgba(90,171,152,.3); }
+.plan-badge { position: absolute; top: 1.5rem; right: 1.5rem; background: var(--teal); color: #fff; font-size: .6rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 3px 11px; border-radius: 100px; }
+.plan-eye { font-size: .62rem; font-weight: 700; text-transform: uppercase; letter-spacing: .15em; margin-bottom: .35rem; }
+.plan.std .plan-eye { color: var(--teal); } .plan.feat .plan-eye { color: var(--mint); }
+.plan-name { font-family: 'Playfair Display', serif; font-size: 1.65rem; font-weight: 700; margin-bottom: .2rem; }
+.plan.std .plan-name { color: var(--ink); } .plan.feat .plan-name { color: #fff; }
+.plan-tag { font-size: .8rem; margin-bottom: 1.4rem; }
+.plan.std .plan-tag { color: var(--ink-lt); } .plan.feat .plan-tag { color: rgba(255,255,255,.48); }
+.plan-price { display: flex; align-items: baseline; gap: 5px; margin-bottom: 1.6rem; }
+.plan-price-n { font-family: 'Playfair Display', serif; font-size: 2.9rem; font-weight: 900; line-height: 1; }
+.plan.std .plan-price-n { color: var(--green); } .plan.feat .plan-price-n { color: var(--mint); }
+.plan-price-u { font-size: .76rem; line-height: 1.35; }
+.plan.std .plan-price-u { color: var(--ink-lt); } .plan.feat .plan-price-u { color: rgba(255,255,255,.4); }
+.plan-hr { height: 1px; margin: 0 0 1.4rem; }
+.plan.std .plan-hr { background: rgba(168,212,204,.3); } .plan.feat .plan-hr { background: rgba(168,212,204,.12); }
+.plan-sec { font-size: .6rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; margin-bottom: .7rem; }
+.plan.std .plan-sec { color: var(--ink-lt); } .plan.feat .plan-sec { color: var(--teal-lt); }
+.plan-items { list-style: none; display: flex; flex-direction: column; gap: .65rem; margin-bottom: 1.2rem; }
+.plan-items li { display: flex; align-items: flex-start; gap: 9px; font-size: .85rem; line-height: 1.5; }
+.plan.std .plan-items li { color: var(--ink-mid); } .plan.feat .plan-items li { color: rgba(255,255,255,.8); }
+.plan-items li svg { flex-shrink: 0; margin-top: 2px; }
+.plan.std .plan-items.inc li svg { color: var(--teal); } .plan.feat .plan-items.inc li svg { color: var(--mint); }
+.plan.std .plan-items.exc li svg { color: var(--danger); } .plan.feat .plan-items.exc li svg { color: rgba(196,122,106,.7); }
+.plan-btn { display: block; text-align: center; padding: .9rem; border-radius: 100px; font-weight: 700; font-size: .86rem; text-decoration: none; transition: all .22s; margin-top: 1.6rem; min-height: 48px; line-height: 2; }
+.plan.std .plan-btn { background: var(--mint-pale); color: var(--green); border: 1.5px solid rgba(168,212,204,.4); }
+.plan.std .plan-btn:hover { background: var(--teal); color: #fff; }
+.plan.feat .plan-btn { background: var(--mint); color: var(--green); }
+.plan.feat .plan-btn:hover { background: #fff; }
+
+.examples { background: var(--white); }
+.ex-wrap { background: var(--cream); border-radius: var(--r); padding: 2.2rem; border: 1px solid rgba(168,212,204,.22); margin-top: 2rem; }
+.ex-table { width: 100%; border-collapse: collapse; }
+.ex-table th { text-align: left; font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--ink-lt); padding-bottom: .8rem; border-bottom: 1.5px solid rgba(168,212,204,.25); }
+.ex-table th:not(:first-child) { text-align: right; }
+.ex-table td { padding: .78rem 0; font-size: .88rem; color: var(--ink-mid); border-bottom: 1px solid rgba(168,212,204,.12); }
+.ex-table td:not(:first-child) { text-align: right; font-weight: 600; color: var(--ink); }
+.ex-note { margin-top: 1.2rem; font-size: .78rem; color: var(--ink-lt); line-height: 1.7; }
+.reken { background: var(--mint-pale); border-radius: 14px; padding: 1.6rem 1.8rem; margin-top: 1.8rem; border-left: 4px solid var(--teal); }
+.reken-title { font-weight: 700; font-size: .84rem; color: var(--ink); margin-bottom: .45rem; }
+.reken-body { font-size: .83rem; color: var(--ink-mid); line-height: 1.75; }
+.btn-row { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 2rem; }
+@media(max-width:600px){ .plans-grid{grid-template-columns:1fr} .plan{padding:1.8rem} }
+.custom-band { background:var(--white);border:1.5px dashed rgba(168,212,204,.45);border-radius:22px;padding:2rem 2.4rem;margin-top:1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap; }
+.custom-band-text strong { display:block;font-size:.93rem;font-weight:700;color:var(--ink);margin-bottom:.2rem; }
+.custom-band-text p { font-size:.83rem;color:var(--ink-lt);line-height:1.55; }
+@media(max-width:480px){ .btn-row{flex-direction:column} }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Origo abonnementen",
+  "description": "Procesregie voor verzuim in het MKB. Vaste maandprijzen op basis van bedrijfsgrootte.",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "Service",
+        "name": "Origo — 1–5 medewerkers",
+        "description": "Procesregie voor organisaties met 1 tot en met 5 medewerkers.",
+        "provider": { "@type": "Organization", "name": "Origo B.V.", "url": "https://origo.care" },
+        "offers": {
+          "@type": "Offer",
+          "price": "65.00",
+          "priceCurrency": "EUR",
+          "priceSpecification": { "@type": "UnitPriceSpecification", "price": "65.00", "priceCurrency": "EUR", "unitText": "per maand" }
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "Service",
+        "name": "Origo — 6–10 medewerkers",
+        "description": "Procesregie voor organisaties met 6 tot en met 10 medewerkers.",
+        "provider": { "@type": "Organization", "name": "Origo B.V.", "url": "https://origo.care" },
+        "offers": {
+          "@type": "Offer",
+          "price": "99.00",
+          "priceCurrency": "EUR",
+          "priceSpecification": { "@type": "UnitPriceSpecification", "price": "99.00", "priceCurrency": "EUR", "unitText": "per maand" }
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "Service",
+        "name": "Origo — 11–20 medewerkers",
+        "description": "Procesregie voor organisaties met 11 tot en met 20 medewerkers.",
+        "provider": { "@type": "Organization", "name": "Origo B.V.", "url": "https://origo.care" },
+        "offers": {
+          "@type": "Offer",
+          "price": "150.00",
+          "priceCurrency": "EUR",
+          "priceSpecification": { "@type": "UnitPriceSpecification", "price": "150.00", "priceCurrency": "EUR", "unitText": "per maand" }
+        }
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="page-hero">
+  <svg class="page-hero-bg" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;background:url('https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1200&q=60&auto=format&fit=crop') center/cover no-repeat;opacity:.08"></svg>
+  <div class="page-hero-inner">
+    <p class="ph-eye">Diensten</p>
+    <h1>Abonnementen</h1>
+    <p class="page-hero-lead">Vaste maandprijzen op basis van uw bedrijfsgrootte — geen verborgen kosten per medewerker. Medische consulten gaan apart via de arts-route (BAC).</p>
+  </div>
+</div>
+
+<section class="plans">
+  <div class="wrap">
+    <div class="eyebrow">Abonnementen</div>
+    <h2 class="h2">Vaste maandprijs per bedrijfsgrootte</h2>
+    <p class="lead">Geen verborgen kosten per medewerker. U betaalt één vast bedrag per maand op basis van uw organisatiegrootte.</p>
+    <div class="plans-grid">
+      <div class="plan std reveal d1">
+        <p class="plan-eye">Procesregie</p>
+        <h2 class="plan-name">1–5 medewerkers</h2>
+        <p class="plan-tag">Vaste maandprijs</p>
+        <div class="plan-price"><span class="plan-price-n">€65</span><span class="plan-price-u">per maand<br>(excl. btw)</span></div>
+        <div class="plan-hr"></div>
+        <p class="plan-sec">Inbegrepen</p>
+        <ul class="plan-items inc" role="list">
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Vaste werkwijze + templates</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Stappenoverzicht + actielijst</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Planning en afsprakenondersteuning</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Support via info&#64;origo.care</li>
+        </ul>
+        <a href="/portal/inschrijven.php" class="plan-btn">Direct inschrijven</a>
+      </div>
+      <div class="plan feat reveal d2">
+        <span class="plan-badge">Meest gekozen</span>
+        <p class="plan-eye">Procesregie</p>
+        <h2 class="plan-name">6–10 medewerkers</h2>
+        <p class="plan-tag">Vaste maandprijs</p>
+        <div class="plan-price"><span class="plan-price-n">€99</span><span class="plan-price-u">per maand<br>(excl. btw)</span></div>
+        <div class="plan-hr"></div>
+        <p class="plan-sec">Inbegrepen</p>
+        <ul class="plan-items inc" role="list">
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Vaste werkwijze + templates</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Stappenoverzicht + actielijst</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Planning en afsprakenondersteuning</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Support via info&#64;origo.care</li>
+        </ul>
+        <a href="/portal/inschrijven.php" class="plan-btn">Direct inschrijven</a>
+      </div>
+      <div class="plan std reveal d3">
+        <p class="plan-eye">Procesregie</p>
+        <h2 class="plan-name">11–20 medewerkers</h2>
+        <p class="plan-tag">Vaste maandprijs</p>
+        <div class="plan-price"><span class="plan-price-n">€150</span><span class="plan-price-u">per maand<br>(excl. btw)</span></div>
+        <div class="plan-hr"></div>
+        <p class="plan-sec">Inbegrepen</p>
+        <ul class="plan-items inc" role="list">
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Vaste werkwijze + templates</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Stappenoverzicht + actielijst</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Planning en afsprakenondersteuning</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Support via info&#64;origo.care</li>
+        </ul>
+        <a href="/portal/inschrijven.php" class="plan-btn">Direct inschrijven</a>
+      </div>
+    </div>
+    <div class="custom-band reveal">
+      <div class="custom-band-text">
+        <strong>20 of meer medewerkers? — Op maat</strong>
+        <p>Voor grotere organisaties stellen wij een passend voorstel op. Neem contact op voor een offerte op maat.</p>
+      </div>
+      <a href="contact.html" class="btn btn-dark">Offerte aanvragen</a>
+    </div>
+  </div>
+</section>
+
+<section class="examples">
+  <div class="wrap">
+    <div class="eyebrow">Voorbeelden</div>
+    <h2 class="h2">Wat kost het concreet?</h2>
+    <p class="lead">Geen verborgen kosten binnen Origo. Medische consulten worden apart gefactureerd via de arts-route.</p>
+    <div class="ex-wrap">
+      <table class="ex-table">
+        <thead><tr><th>Bedrijfsgrootte</th><th>Maandprijs</th></tr></thead>
+        <tbody>
+          <tr><td>1–5 medewerkers</td><td>€ 65,–</td></tr>
+          <tr><td>6–10 medewerkers</td><td>€ 99,–</td></tr>
+          <tr><td>11–20 medewerkers</td><td>€ 150,–</td></tr>
+          <tr><td>20+ medewerkers</td><td>Op maat</td></tr>
+        </tbody>
+      </table>
+      <p class="ex-note">Alle bedragen excl. btw. Medische consulten apart via arts-route (BAC).</p>
+    </div>
+    <div class="reken">
+      <div class="reken-title">Rekenvoorbeeld (indicatie)</div>
+      <p class="reken-body">10 medewerkers: <strong>€99 p/m</strong> + 2 consulten bedrijfsarts (2 × €235) = <strong>€569 p/m indicatie</strong> excl. btw. Werkelijke consultduur en -volume verschillen per situatie.</p>
+    </div>
+    <div class="btn-row">
+      <a href="contact.html" class="btn btn-dark">Vraag offerte</a>
+      <a href="contact.html" class="btn btn-light">Plan kennismaking</a>
+    </div>
+  </div>
+</section>
+<script src="shared.js"></script>
+</body></html>

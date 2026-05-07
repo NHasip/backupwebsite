@@ -1,0 +1,155 @@
+{
+    "template": {
+        "value": "import-base"
+    },
+    "valid-act": {
+        "value": "auto"
+    },
+    "recovery-link": {
+        "value": ""
+    },
+    "import-info": {
+        "value": {
+            "import_page": "https:\/\/backup.necmardemo.nl\/wp-admin\/admin.php?page=duplicator-pro-import",
+            "recovery_page": "\/wp-admin\/admin.php?page=duplicator-pro-tools&tab=recovery",
+            "recovery_is_out_to_date": true,
+            "recovery_package_life": -1,
+            "color-scheme": {
+                "name": "Standaard",
+                "url": false,
+                "colors": [
+                    "#1d2327",
+                    "#2c3338",
+                    "#2271b1",
+                    "#72aee6"
+                ],
+                "icon_colors": {
+                    "base": "#a7aaad",
+                    "focus": "#72aee6",
+                    "current": "#fff"
+                }
+            },
+            "color-primary-button": "#2271b1"
+        }
+    },
+    "db-display-overwarn": {
+        "value": false
+    },
+    "cpnl-can-sel": {
+        "value": false
+    },
+    "view_mode": {
+        "value": "basic"
+    },
+    "url_new": {
+        "value": "https:\/\/backup.necmardemo.nl",
+        "formStatus": "st_infoonly"
+    },
+    "path_new": {
+        "value": "\/var\/www\/vhosts\/necmardemo.nl\/backup.necmardemo.nl\/",
+        "formStatus": "st_infoonly"
+    },
+    "dbhost": {
+        "value": "localhost:3306",
+        "formStatus": "st_infoonly"
+    },
+    "dbname": {
+        "value": "wp_1vh1x",
+        "formStatus": "st_infoonly"
+    },
+    "dbuser": {
+        "value": "wp_uveba",
+        "formStatus": "st_infoonly"
+    },
+    "dbpass": {
+        "value": "03m^Seh%6u#*Fn!M",
+        "formStatus": "st_infoonly"
+    },
+    "dbcharset": {
+        "value": "utf8"
+    },
+    "dbcollate": {
+        "value": ""
+    },
+    "ovr_site_data": {
+        "value": {
+            "dupVersion": "4.5.24.2",
+            "wpVersion": "6.9.4",
+            "dbhost": "localhost:3306",
+            "dbname": "wp_1vh1x",
+            "dbuser": "wp_uveba",
+            "dbpass": "03m^Seh%6u#*Fn!M",
+            "table_prefix": "RVfkxkr_",
+            "restUrl": "https:\/\/backup.necmardemo.nl\/index.php?rest_route=\/",
+            "restNonce": "2f56b221ec",
+            "restAuthUser": "",
+            "restAuthPassword": "",
+            "ustatIdentifier": "AkqioMNVpmN=7L53eRFhKL=qV94JZPWmQbXizdD7v25k",
+            "isMultisite": false,
+            "subdomain": false,
+            "subsites": [
+                {
+                    "id": 1,
+                    "domain": "backup.necmardemo.nl",
+                    "path": "\/",
+                    "blogname": "Bac-kup",
+                    "blog_prefix": "RVfkxkr_",
+                    "filteredTables": [],
+                    "adminUsers": [
+                        {
+                            "ID": "1",
+                            "user_login": "BackupAdmin",
+                            "id": "1"
+                        }
+                    ],
+                    "fullHomeUrl": "https:\/\/backup.necmardemo.nl",
+                    "fullSiteUrl": "https:\/\/backup.necmardemo.nl",
+                    "uploadPath": "wp-content\/uploads",
+                    "fullUploadPath": "\/var\/www\/vhosts\/necmardemo.nl\/backup.necmardemo.nl\/wp-content\/uploads",
+                    "fullUploadSafePath": "\/var\/www\/vhosts\/necmardemo.nl\/backup.necmardemo.nl\/wp-content\/uploads",
+                    "fullUploadUrl": "https:\/\/backup.necmardemo.nl\/wp-content\/uploads",
+                    "filteredPaths": []
+                }
+            ],
+            "nextSubsiteIdAI": -1,
+            "adminUsers": [
+                {
+                    "ID": "1",
+                    "user_login": "BackupAdmin",
+                    "id": "1"
+                }
+            ],
+            "paths": {
+                "home": "\/var\/www\/vhosts\/necmardemo.nl\/backup.necmardemo.nl\/",
+                "abs": "\/var\/www\/vhosts\/necmardemo.nl\/backup.necmardemo.nl\/",
+                "wpconfig": "\/var\/www\/vhosts\/necmardemo.nl\/backup.necmardemo.nl",
+                "wpcontent": "\/var\/www\/vhosts\/necmardemo.nl\/backup.necmardemo.nl\/wp-content",
+                "uploads": "\/var\/www\/vhosts\/necmardemo.nl\/backup.necmardemo.nl\/wp-content\/uploads",
+                "plugins": "\/var\/www\/vhosts\/necmardemo.nl\/backup.necmardemo.nl\/wp-content\/plugins",
+                "muplugins": "\/var\/www\/vhosts\/necmardemo.nl\/backup.necmardemo.nl\/wp-content\/mu-plugins",
+                "themes": "\/var\/www\/vhosts\/necmardemo.nl\/backup.necmardemo.nl\/wp-content\/themes"
+            },
+            "urls": {
+                "home": "https:\/\/backup.necmardemo.nl",
+                "abs": "https:\/\/backup.necmardemo.nl",
+                "login": "https:\/\/backup.necmardemo.nl\/wp-login.php",
+                "wpcontent": "https:\/\/backup.necmardemo.nl\/wp-content",
+                "uploads": "https:\/\/backup.necmardemo.nl\/wp-content\/uploads",
+                "plugins": "https:\/\/backup.necmardemo.nl\/wp-content\/plugins",
+                "muplugins": "https:\/\/backup.necmardemo.nl\/wp-content\/mu-plugins",
+                "themes": "https:\/\/backup.necmardemo.nl\/wp-content\/themes"
+            },
+            "dupLicense": 11,
+            "loggedUser": {
+                "id": 1,
+                "ID": 1,
+                "user_login": "BackupAdmin"
+            },
+            "packagesTableExists": true,
+            "removeFilters": {
+                "dirs": [],
+                "files": []
+            }
+        }
+    }
+}
