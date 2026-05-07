@@ -738,8 +738,8 @@ function bac_kup_origo_replace_branding_in_database(): array
 {
     global $wpdb;
 
-    $search = ['Origo', 'ORIGO', 'origo.care', '@origo.care'];
-    $replace = ['Bac-kup', 'BAC-KUP', 'bac-kup.care', '@bac-kup.care'];
+    $search = ['Origo', 'ORIGO', 'origo', 'origo.care', '@origo.care'];
+    $replace = ['Necmar', 'NECMAR', 'necmar', 'necmar.care', '@necmar.care'];
 
     $report = [
         'posts_rows_updated' => 0,
@@ -754,6 +754,9 @@ function bac_kup_origo_replace_branding_in_database(): array
          WHERE post_title LIKE '%Origo%'
             OR post_excerpt LIKE '%Origo%'
             OR post_content LIKE '%Origo%'
+            OR post_title LIKE '%origo%'
+            OR post_excerpt LIKE '%origo%'
+            OR post_content LIKE '%origo%'
             OR post_content LIKE '%origo.care%'
             OR post_excerpt LIKE '%origo.care%'
             OR post_title LIKE '%origo.care%'",
@@ -787,6 +790,7 @@ function bac_kup_origo_replace_branding_in_database(): array
         "SELECT meta_id, meta_value
          FROM {$wpdb->postmeta}
          WHERE meta_value LIKE '%Origo%'
+            OR meta_value LIKE '%origo%'
             OR meta_value LIKE '%origo.care%'",
         ARRAY_A
     );
@@ -815,6 +819,7 @@ function bac_kup_origo_replace_branding_in_database(): array
         "SELECT option_id, option_value
          FROM {$wpdb->options}
          WHERE option_value LIKE '%Origo%'
+            OR option_value LIKE '%origo%'
             OR option_value LIKE '%origo.care%'",
         ARRAY_A
     );
