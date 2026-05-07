@@ -528,6 +528,17 @@ body.page-id-5 .examples {
   padding: 52px var(--px);
 }
 
+body.page-id-5 .page-hero-inner,
+body.page-id-5 .plans .wrap,
+body.page-id-5 .plans .wrap.e-con,
+body.page-id-5 .examples .wrap,
+body.page-id-5 .examples .wrap.e-con {
+  width: 100% !important;
+  max-width: var(--max-w) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 body.page-id-5 .plans .wrap,
 body.page-id-5 .examples .wrap {
   max-width: var(--max-w);
