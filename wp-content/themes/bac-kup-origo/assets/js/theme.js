@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
   'use strict';
 
   const nav = document.getElementById('mainNav');
@@ -149,7 +149,7 @@
         successArea.hidden = false;
       }
     }).catch(function () {
-      window.alert('Er is iets misgegaan. Probeer het opnieuw of mail naar info@origo.care.');
+      window.alert('Er is iets misgegaan. Probeer het opnieuw of mail naar info@bac-kup.care.');
       button.disabled = false;
       button.innerHTML = 'Verstuur aanvraag';
     });

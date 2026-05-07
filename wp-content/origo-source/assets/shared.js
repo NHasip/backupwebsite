@@ -92,7 +92,7 @@
     </div>
     <div class="footer-bottom">
       <span class="ftr-copy">© Bac-kup B.V. — Anne Frankstraat 35, 2548LA 's-Gravenhage — KvK 99878232</span>
-      <span class="ftr-copy">origo.care · Geen tracking · Geen advertenties</span>
+      <span class="ftr-copy">bac-kup.care · Geen tracking · Geen advertenties</span>
     </div>
   </div>
 </footer>`;
