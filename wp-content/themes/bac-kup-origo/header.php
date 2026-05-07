@@ -15,9 +15,6 @@ if (!defined('ABSPATH')) {
 <?php if (function_exists('bac_kup_render_global_part') && bac_kup_render_global_part('header')) { return; } ?>
 <nav id="mainNav" role="navigation" aria-label="Hoofdnavigatie">
   <div class="nav-inner">
-    <a href="<?php echo esc_url(home_url('/')); ?>" class="nav-logo" aria-label="Bac-kup terug naar home">
-      <img src="<?php echo esc_url(bac_kup_logo_url()); ?>" alt="Bac-kup" class="nav-logo-img">
-    </a>
     <ul class="nav-links" role="list">
       <?php foreach (bac_kup_origo_pages() as $page) : ?>
         <?php $active = bac_kup_is_current_slug($page['slug']); ?>

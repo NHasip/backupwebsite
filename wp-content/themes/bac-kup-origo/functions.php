@@ -153,13 +153,6 @@ function bac_kup_build_global_header_elementor_data(): array
 
     $header = bac_kup_container([
         bac_kup_container([
-            bac_kup_widget('image', [
-                'image' => ['url' => esc_url(bac_kup_logo_url()), 'id' => 0],
-                'image_size' => 'full',
-                'link_to' => 'custom',
-                'link' => ['url' => esc_url(home_url('/'))],
-                '_css_classes' => 'nav-logo',
-            ]),
             bac_kup_container($nav_items, 'nav-links'),
         ], 'nav-inner'),
     ], 'bk-editable-header');

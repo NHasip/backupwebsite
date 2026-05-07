@@ -30,6 +30,28 @@
   opacity: 1;
 }
 
+/* Hide header logo everywhere (theme + Elementor global header). */
+.nav-logo,
+.nav-logo-img,
+.elementor .bk-editable-header .nav-logo,
+.elementor .bk-editable-header .nav-logo img {
+  display: none !important;
+}
+
+/* Keep menu aligned after logo removal. */
+.nav-inner,
+.elementor .bk-editable-header .nav-inner.e-con {
+  justify-content: flex-end !important;
+}
+
+/* Remove footer output entirely, including Elementor global footer remnants. */
+footer,
+.footer-wrap,
+.bk-editable-footer,
+.elementor .bk-editable-footer {
+  display: none !important;
+}
+
 body.admin-bar nav {
   top: 32px;
 }
