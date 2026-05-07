@@ -5,7 +5,7 @@
 
 /* ── HERO ── */
 .legal-hero {
-  background: #1e3d2f;
+  background: #275981;
   padding: 60px clamp(1.25rem, 5vw, 5rem) 52px;
   position: relative; overflow: hidden;
   z-index: 1;
@@ -90,7 +90,7 @@
 
 /* ── CONTACT CARD ── */
 .legal-contact-card {
-  background: #1e3d2f; border-radius: 16px;
+  background: #275981; border-radius: 16px;
   padding: 1.5rem; margin-top: 1.3rem;
 }
 .lcc-title {
