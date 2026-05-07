@@ -737,14 +737,14 @@ function bac_kup_origo_replace_in_value($value, array $search, array $replace, i
 function bac_kup_origo_button_link_replacements(): array
 {
     $replacements = bac_kup_origo_url_replacements();
-    $contact_url = home_url('/contact/');
+    $portal_url = home_url('/portal/inschrijven.php');
 
-    $replacements['/portal/inschrijven.php'] = $contact_url;
-    $replacements['portal/inschrijven.php'] = $contact_url;
-    $replacements['https://bac-kup.care/portal/inschrijven.php'] = $contact_url;
-    $replacements['http://bac-kup.care/portal/inschrijven.php'] = $contact_url;
-    $replacements['https://www.bac-kup.care/portal/inschrijven.php'] = $contact_url;
-    $replacements['http://www.bac-kup.care/portal/inschrijven.php'] = $contact_url;
+    $replacements['/portal/inschrijven.php'] = $portal_url;
+    $replacements['portal/inschrijven.php'] = $portal_url;
+    $replacements['https://bac-kup.care/portal/inschrijven.php'] = $portal_url;
+    $replacements['http://bac-kup.care/portal/inschrijven.php'] = $portal_url;
+    $replacements['https://www.bac-kup.care/portal/inschrijven.php'] = $portal_url;
+    $replacements['http://www.bac-kup.care/portal/inschrijven.php'] = $portal_url;
 
     return $replacements;
 }
