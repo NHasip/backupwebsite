@@ -530,7 +530,7 @@ body.page-id-5 .examples {
 
 body.page-id-5 .plans .wrap,
 body.page-id-5 .examples .wrap {
-  max-width: 1080px;
+  max-width: var(--max-w);
 }
 
 body.page-id-5 .plans-grid {
