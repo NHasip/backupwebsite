@@ -721,6 +721,18 @@ body.page-id-5 .btn-row .btn {
   font-size: .76rem;
 }
 
+/* Werkwijze page: align hero/content containers with site grid */
+body.page-id-6 .page-hero-inner,
+body.page-id-6 .steps-sec .wrap,
+body.page-id-6 .steps-sec .wrap.e-con,
+body.page-id-6 .sla-sec .wrap,
+body.page-id-6 .sla-sec .wrap.e-con {
+  width: 100% !important;
+  max-width: var(--max-w) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 /* Arts-route page: strict spacing/alignment while keeping Elementor widgets editable */
 body.page-id-7 .page-hero-inner,
 body.page-id-7 .notice-wrap.e-con,
