@@ -74,8 +74,7 @@
   }
 
   .nav-links,
-  .elementor .bk-editable-header .nav-links,
-  .elementor .bk-editable-header .nav-links.e-con {
+  .elementor .bk-editable-header .nav-links {
     display: none !important;
   }
 
@@ -87,20 +86,6 @@
 
   .mob-menu {
     display: block !important;
-  }
-
-  /* Elementor global header: prevent HTML widget wrappers from stretching full width. */
-  .elementor .bk-editable-header .elementor-widget-html {
-    width: auto !important;
-    max-width: fit-content !important;
-    flex: 0 0 auto !important;
-  }
-}
-
-@media (min-width: 1181px) {
-  .elementor .bk-editable-header .nav-ham,
-  .elementor .bk-editable-header .mob-menu {
-    display: none !important;
   }
 }
 
