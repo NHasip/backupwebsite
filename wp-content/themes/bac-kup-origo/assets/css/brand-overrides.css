@@ -75,13 +75,7 @@
   }
 }
 
-/* Remove footer output entirely, including Elementor global footer remnants. */
-footer,
-.footer-wrap,
-.bk-editable-footer,
-.elementor .bk-editable-footer {
-  display: none !important;
-}
+/* Footer is enabled; keep standard/footer-grid styling from shared styles. */
 
 body.admin-bar nav {
   top: 32px;
