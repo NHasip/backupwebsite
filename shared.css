@@ -217,9 +217,6 @@ footer { background: #0d1810; padding: 4rem var(--px) 2.2rem; }
 }
 
 @media (max-width: 1180px) {
-  html { margin-top: 0 !important; }
-  * html body { margin-top: 0 !important; }
-  body.admin-bar { margin-top: 0 !important; }
   :root { --nav-h: 60px; }
   .nav-inner { justify-content: space-between; }
   .nav-links { display: none; }
