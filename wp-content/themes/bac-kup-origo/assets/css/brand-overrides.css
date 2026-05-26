@@ -52,41 +52,6 @@
   display: block !important;
 }
 
-/* Elementor header hard reset: remove hidden top spacing from container defaults. */
-.elementor .bk-editable-header.e-con {
-  min-height: var(--nav-h) !important;
-  height: var(--nav-h) !important;
-  margin: 0 !important;
-  padding: 0 var(--px) !important;
-  --padding-top: 0 !important;
-  --padding-right: var(--px) !important;
-  --padding-bottom: 0 !important;
-  --padding-left: var(--px) !important;
-}
-
-.elementor .bk-editable-header .nav-inner.e-con {
-  min-height: var(--nav-h) !important;
-  height: var(--nav-h) !important;
-  margin: 0 auto !important;
-  padding: 0 !important;
-  --padding-top: 0 !important;
-  --padding-right: 0 !important;
-  --padding-bottom: 0 !important;
-  --padding-left: 0 !important;
-}
-
-.elementor .bk-editable-header .nav-logo.e-con,
-.elementor .bk-editable-header .nav-links.e-con,
-.elementor .bk-editable-header .elementor-widget-html > .elementor-widget-container {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-.elementor .bk-editable-header .elementor-widget-html {
-  align-self: center !important;
-  line-height: 0 !important;
-}
-
 /* Keep Elementor global-header CTA identical to site primary button style. */
 .elementor .bk-editable-header .nav-links .nav-cta.elementor-widget-button .elementor-button {
   background: var(--green) !important;
