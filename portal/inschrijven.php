@@ -101,6 +101,9 @@ footer, .footer-wrap, .footer-grid, .footer-bottom { display:none !important; }
 <body>
 <nav id="mainNav" role="navigation" aria-label="Hoofdnavigatie">
   <div class="nav-inner">
+    <a class="nav-logo" href="/" aria-label="Bac-kup home">
+      <img class="nav-logo-img" src="/logo.png" alt="Bac-kup">
+    </a>
     <ul class="nav-links" role="list">
       <li><a href="/">Home</a></li>
       <li><a href="/abonnementen/">Abonnementen</a></li>

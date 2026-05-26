@@ -30,30 +30,33 @@
   opacity: 1;
 }
 
-/* Hide header logo everywhere (theme + Elementor global header). */
-.nav-logo,
-.nav-logo-img,
-.elementor .bk-editable-header .nav-logo,
-.elementor .bk-editable-header .nav-logo img {
-  display: none !important;
-}
-
-/* Keep menu aligned after logo removal. */
+/* Keep header layout aligned with logo on the left. */
 .nav-inner,
 .elementor .bk-editable-header .nav-inner.e-con {
-  justify-content: center !important;
+  justify-content: space-between !important;
 }
 
 .nav-inner > .nav-links,
 .elementor .bk-editable-header .nav-inner.e-con > .nav-links {
-  margin-inline: auto !important;
+  margin-left: auto !important;
+}
+
+.nav-logo,
+.elementor .bk-editable-header .nav-logo {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.nav-logo-img,
+.elementor .bk-editable-header .nav-logo img {
+  display: block !important;
 }
 
 /* Tablet/mobile navigation: use drawer menu and keep toggle at right edge. */
 @media (max-width: 1180px) {
   .nav-inner,
   .elementor .bk-editable-header .nav-inner.e-con {
-    justify-content: flex-end !important;
+    justify-content: space-between !important;
   }
 
   .nav-links,

@@ -12,9 +12,11 @@ if (!defined('ABSPATH')) {
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <?php if (!function_exists('bac_kup_is_global_part_page') || !bac_kup_is_global_part_page()) : ?>
-<?php if (function_exists('bac_kup_render_global_part') && bac_kup_render_global_part('header')) { return; } ?>
 <nav id="mainNav" role="navigation" aria-label="Hoofdnavigatie">
   <div class="nav-inner">
+    <a class="nav-logo" href="<?php echo esc_url(home_url('/')); ?>" aria-label="Bac-kup home">
+      <img class="nav-logo-img" src="<?php echo esc_url(bac_kup_logo_url()); ?>" alt="Bac-kup">
+    </a>
     <ul class="nav-links" role="list">
       <?php foreach (bac_kup_origo_pages() as $page) : ?>
         <?php $active = bac_kup_is_current_slug($page['slug']); ?>
