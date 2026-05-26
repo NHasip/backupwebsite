@@ -95,6 +95,11 @@
     max-width: fit-content !important;
     flex: 0 0 auto !important;
   }
+
+  body.admin-bar nav,
+  body.admin-bar .bk-editable-header {
+    top: 0 !important;
+  }
 }
 
 @media (min-width: 1181px) {
@@ -504,8 +509,9 @@ body.elementor-page {
 }
 
 @media (max-width: 782px) {
-  body.admin-bar nav {
-    top: 46px;
+  body.admin-bar nav,
+  body.admin-bar .bk-editable-header {
+    top: 0 !important;
   }
 }
 
