@@ -439,6 +439,47 @@ body.elementor-page {
   border: 1.5px solid rgba(168,212,204,.45);
 }
 
+/* CTA band (onderste blok): centered and clean on desktop/tablet/mobile. */
+.elementor .cta-band.e-con {
+  text-align: center !important;
+}
+
+.elementor .cta-band .elementor-heading-title,
+.elementor .cta-band .elementor-widget-text-editor p {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.elementor .cta-band-btns.e-con {
+  justify-content: center !important;
+  align-items: center !important;
+  gap: .9rem !important;
+  flex-wrap: wrap !important;
+  width: 100% !important;
+  margin-top: .35rem !important;
+}
+
+.elementor .cta-band-btns > .elementor-widget-button {
+  width: auto !important;
+}
+
+@media (max-width: 1024px) {
+  .elementor .cta-band.e-con {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+
+  .elementor .cta-band .elementor-heading-title {
+    font-size: clamp(2rem, 5vw, 3rem) !important;
+    line-height: 1.14 !important;
+  }
+
+  .elementor .cta-band .elementor-widget-text-editor p {
+    max-width: 680px !important;
+  }
+}
+
 @media (max-width: 782px) {
   body.admin-bar nav {
     top: 46px;
@@ -542,6 +583,15 @@ body.elementor-page {
   .elementor .why-btns .elementor-button,
   .elementor .cta-band-btns .elementor-button {
     width: 100% !important;
+  }
+
+  .elementor .cta-band.e-con {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .elementor .cta-band .elementor-widget-text-editor p {
+    font-size: .95rem !important;
   }
 }
 
