@@ -222,7 +222,6 @@ footer { background: #0d1810; padding: 4rem var(--px) 2.2rem; }
   .nav-links { display: none; }
   .nav-ham { display: flex; align-items: center; justify-content: center; }
   .mob-menu { display: block; }
-  body.admin-bar nav { top: 0; }
 }
 
 @media (max-width: 768px) {

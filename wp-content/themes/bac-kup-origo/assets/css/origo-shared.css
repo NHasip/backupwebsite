@@ -370,10 +370,6 @@ footer { background: #0d1810; padding: 4rem var(--px) 2.2rem; }
   .nav-ham { display: flex; align-items: center; justify-content: center; }
   .mob-menu { display: block; }
   .bk-editable-header .nav-inner { justify-content: space-between !important; }
-  body.admin-bar nav,
-  body.admin-bar .bk-editable-header {
-    top: 0 !important;
-  }
 }
 
 @media (max-width: 768px) {
