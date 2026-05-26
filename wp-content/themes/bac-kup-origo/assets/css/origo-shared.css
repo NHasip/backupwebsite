@@ -363,17 +363,12 @@ footer { background: #0d1810; padding: 4rem var(--px) 2.2rem; }
   .elementor .bk-editable-footer .footer-grid.e-con { grid-template-columns: 1fr 1fr !important; gap: 2.2rem !important; }
 }
 
-@media (max-width: 1180px) {
+@media (max-width: 768px) {
   :root { --nav-h: 60px; }
   .nav-links { display: none; }
   .bk-editable-header .nav-links { display: none !important; }
   .nav-ham { display: flex; align-items: center; justify-content: center; }
   .mob-menu { display: block; }
-  .bk-editable-header .nav-inner { justify-content: space-between !important; }
-}
-
-@media (max-width: 768px) {
-  :root { --nav-h: 60px; }
   .page-hero { padding: 40px var(--px) 36px; }
   .services,
   .voorwie,
@@ -383,6 +378,8 @@ footer { background: #0d1810; padding: 4rem var(--px) 2.2rem; }
   footer { padding: 3rem var(--px) 2rem; }
   .footer-grid { grid-template-columns: 1fr; gap: 1.8rem; }
   .footer-bottom { flex-direction: column; align-items: flex-start; }
+  .elementor .bk-editable-header .nav-inner.e-con { flex-wrap: wrap !important; }
+  .elementor .bk-editable-header .nav-links.e-con { display: flex !important; width: 100% !important; justify-content: flex-start !important; flex-wrap: wrap !important; }
   .elementor .bk-editable-footer .footer-grid.e-con { grid-template-columns: 1fr !important; gap: 1.8rem !important; }
   .elementor .bk-editable-footer .footer-bottom.e-con { flex-direction: column !important; align-items: flex-start !important; }
   .elementor .bk-editable-footer .footer-grid.e-con > .e-con:first-child { padding-left: 0 !important; }
