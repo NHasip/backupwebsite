@@ -221,12 +221,15 @@ footer { background: #0d1810; padding: 4rem var(--px) 2.2rem; }
   .footer-logo-img { height: 26px; }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1180px) {
   :root { --nav-h: 60px; }
   .nav-inner { justify-content: flex-end; }
   .nav-links { display: none; }
   .nav-ham { display: flex; align-items: center; justify-content: center; }
   .mob-menu { display: block; }
+}
+
+@media (max-width: 768px) {
   .page-hero { padding: 40px var(--px) 36px; }
   section { padding: 52px var(--px); }
   footer { padding: 3rem var(--px) 2rem; }

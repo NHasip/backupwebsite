@@ -49,6 +49,29 @@
   margin-inline: auto !important;
 }
 
+/* Tablet/mobile navigation: use drawer menu and keep toggle at right edge. */
+@media (max-width: 1180px) {
+  .nav-inner,
+  .elementor .bk-editable-header .nav-inner.e-con {
+    justify-content: flex-end !important;
+  }
+
+  .nav-links,
+  .elementor .bk-editable-header .nav-links {
+    display: none !important;
+  }
+
+  .nav-ham {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .mob-menu {
+    display: block !important;
+  }
+}
+
 /* Remove footer output entirely, including Elementor global footer remnants. */
 footer,
 .footer-wrap,
