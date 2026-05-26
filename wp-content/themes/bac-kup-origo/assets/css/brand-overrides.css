@@ -71,10 +71,12 @@
   .nav-inner,
   .elementor .bk-editable-header .nav-inner.e-con {
     justify-content: space-between !important;
+    flex-wrap: nowrap !important;
   }
 
   .nav-links,
-  .elementor .bk-editable-header .nav-links {
+  .elementor .bk-editable-header .nav-links,
+  .elementor .bk-editable-header .nav-links.e-con {
     display: none !important;
   }
 
@@ -86,6 +88,12 @@
 
   .mob-menu {
     display: block !important;
+  }
+
+  .elementor .bk-editable-header .elementor-widget-html {
+    width: auto !important;
+    max-width: fit-content !important;
+    flex: 0 0 auto !important;
   }
 }
 
