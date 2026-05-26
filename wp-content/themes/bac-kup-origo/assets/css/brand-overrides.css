@@ -52,6 +52,20 @@
   display: block !important;
 }
 
+/* Keep Elementor global-header CTA identical to site primary button style. */
+.elementor .bk-editable-header .nav-links .nav-cta.elementor-widget-button .elementor-button {
+  background: var(--green) !important;
+  color: #fff !important;
+  border: 0 !important;
+  box-shadow: 0 2px 10px rgba(30,61,47,.2) !important;
+}
+
+.elementor .bk-editable-header .nav-links .nav-cta.elementor-widget-button .elementor-button:hover,
+.elementor .bk-editable-header .nav-links .nav-cta.elementor-widget-button .elementor-button:focus {
+  background: var(--teal) !important;
+  color: #fff !important;
+}
+
 /* Tablet/mobile navigation: use drawer menu and keep toggle at right edge. */
 @media (max-width: 1180px) {
   .nav-inner,
