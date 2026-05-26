@@ -138,6 +138,16 @@ function bac_kup_section_from_elements(array $elements): array
 
 function bac_kup_build_global_header_elementor_data(): array
 {
+    $logo = bac_kup_container([
+        bac_kup_widget('image', [
+            'image' => ['url' => esc_url(bac_kup_logo_url()), 'id' => 0],
+            'image_size' => 'full',
+            'link_to' => 'custom',
+            'link' => ['url' => esc_url(home_url('/'))],
+            '_css_classes' => 'nav-logo-img',
+        ]),
+    ], 'nav-logo');
+
     $nav_items = [];
     foreach (bac_kup_origo_pages() as $page) {
         $nav_items[] = bac_kup_widget('text-editor', [
@@ -151,11 +161,30 @@ function bac_kup_build_global_header_elementor_data(): array
         '_css_classes' => 'nav-cta',
     ]);
 
+    $ham = bac_kup_widget('html', [
+        'html' => '<button class="nav-ham" id="navHam" aria-label="Menu openen" aria-expanded="false" aria-controls="mobMenu"><svg id="hamIcon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>',
+    ]);
+
+    $mob_links = '';
+    foreach (bac_kup_origo_pages() as $page) {
+        $mob_links .= '<li><a href="' . esc_url($page['url']) . '">' . esc_html($page['label']) . '<svg class="arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></li>';
+    }
+
+    $mob_menu = bac_kup_widget('html', [
+        'html' => '<div class="mob-menu" id="mobMenu" role="dialog" aria-label="Navigatiemenu" aria-modal="true"><div class="mob-overlay" id="mobOverlay"></div><div class="mob-panel"><ul class="mob-links" role="list">' . $mob_links . '</ul><div class="mob-divider"></div><a href="' . esc_url(home_url('/contact/')) . '" class="mob-cta"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l.92-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Plan kennismaking</a></div></div>',
+    ]);
+
     $header = bac_kup_container([
         bac_kup_container([
+            $logo,
             bac_kup_container($nav_items, 'nav-links'),
+            $ham,
         ], 'nav-inner'),
-    ], 'bk-editable-header');
+        $mob_menu,
+    ], 'bk-editable-header', [
+        'html_tag' => 'nav',
+        '_element_id' => 'mainNav',
+    ]);
 
     return bac_kup_section_from_elements([$header]);
 }
@@ -249,6 +278,7 @@ function bac_kup_ensure_global_parts(): void
         'footer' => ['title' => 'Global Footer', 'slug' => 'global-footer', 'builder' => 'bac_kup_build_global_footer_elementor_data'],
     ];
     $needs_widget_migration = get_option('bac_kup_global_parts_widgetized', '') !== '1';
+    $needs_header_editor_upgrade = get_option('bac_kup_global_header_editable_v2', '') !== '1';
 
     foreach ($parts as $part => $cfg) {
         $opt = bac_kup_global_part_option_key($part);
@@ -274,7 +304,11 @@ function bac_kup_ensure_global_parts(): void
             continue;
         }
 
-        if (!$exists || $needs_widget_migration) {
+        if (
+            !$exists ||
+            $needs_widget_migration ||
+            ($part === 'header' && $needs_header_editor_upgrade)
+        ) {
             $data = call_user_func($cfg['builder']);
             update_post_meta($id, '_elementor_data', wp_slash(wp_json_encode($data)));
             update_post_meta($id, '_elementor_edit_mode', 'builder');
@@ -286,6 +320,9 @@ function bac_kup_ensure_global_parts(): void
 
     if ($needs_widget_migration) {
         update_option('bac_kup_global_parts_widgetized', '1');
+    }
+    if ($needs_header_editor_upgrade) {
+        update_option('bac_kup_global_header_editable_v2', '1');
     }
 }
 

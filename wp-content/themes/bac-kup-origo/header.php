@@ -12,6 +12,7 @@ if (!defined('ABSPATH')) {
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <?php if (!function_exists('bac_kup_is_global_part_page') || !bac_kup_is_global_part_page()) : ?>
+<?php if (function_exists('bac_kup_render_global_part') && bac_kup_render_global_part('header')) { return; } ?>
 <nav id="mainNav" role="navigation" aria-label="Hoofdnavigatie">
   <div class="nav-inner">
     <a class="nav-logo" href="<?php echo esc_url(home_url('/')); ?>" aria-label="Bac-kup home">
