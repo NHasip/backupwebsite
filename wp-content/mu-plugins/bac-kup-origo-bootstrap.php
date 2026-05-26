@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-function bac_kup_origo_map(): array
+function bac_kup_backup_map(): array
 {
     return [
         'index.html' => ['title' => 'Home', 'slug' => 'home', 'is_front' => true],
@@ -28,7 +28,7 @@ function bac_kup_origo_map(): array
     ];
 }
 
-function bac_kup_origo_url_replacements(): array
+function bac_kup_backup_url_replacements(): array
 {
     return [
         'https://bac-kup.care/index.html' => home_url('/'),
@@ -61,16 +61,16 @@ function bac_kup_origo_url_replacements(): array
         'algemene-voorwaarden.html' => home_url('/algemene-voorwaarden/'),
         '/colofon.html' => home_url('/colofon/'),
         'colofon.html' => home_url('/colofon/'),
-        'logo.png' => get_template_directory_uri() . '/assets/img/logo-origo.png',
+        'logo.png' => get_template_directory_uri() . '/assets/img/logo-backup.png',
     ];
 }
 
-function bac_kup_origo_element_id(): string
+function bac_kup_backup_element_id(): string
 {
     return substr(md5(uniqid((string) wp_rand(), true)), 0, 8);
 }
 
-function bac_kup_origo_merge_classes(string ...$classes): string
+function bac_kup_backup_merge_classes(string ...$classes): string
 {
     $all = [];
     foreach ($classes as $class_line) {
@@ -90,29 +90,29 @@ function bac_kup_origo_merge_classes(string ...$classes): string
     return implode(' ', array_keys($all));
 }
 
-function bac_kup_origo_outer_html(\DOMNode $node): string
+function bac_kup_backup_outer_html(\DOMNode $node): string
 {
     return $node->ownerDocument ? $node->ownerDocument->saveHTML($node) : '';
 }
 
-function bac_kup_origo_inner_html(\DOMElement $element): string
+function bac_kup_backup_inner_html(\DOMElement $element): string
 {
     $html = '';
     foreach ($element->childNodes as $child) {
-        $html .= bac_kup_origo_outer_html($child);
+        $html .= bac_kup_backup_outer_html($child);
     }
     return $html;
 }
 
-function bac_kup_origo_class_name(\DOMElement $element): string
+function bac_kup_backup_class_name(\DOMElement $element): string
 {
     $class = trim((string) $element->getAttribute('class'));
     return preg_replace('/\s+/', ' ', $class) ?: '';
 }
 
-function bac_kup_origo_is_button_anchor(\DOMElement $element): bool
+function bac_kup_backup_is_button_anchor(\DOMElement $element): bool
 {
-    $class = ' ' . strtolower(bac_kup_origo_class_name($element)) . ' ';
+    $class = ' ' . strtolower(bac_kup_backup_class_name($element)) . ' ';
 
     return str_contains($class, ' btn ')
         || str_contains($class, ' plan-btn ')
@@ -121,13 +121,13 @@ function bac_kup_origo_is_button_anchor(\DOMElement $element): bool
         || str_contains($class, ' svc-link ');
 }
 
-function bac_kup_origo_anchor_text(\DOMElement $element): string
+function bac_kup_backup_anchor_text(\DOMElement $element): string
 {
-    $text = trim(preg_replace('/\s+/', ' ', strip_tags(bac_kup_origo_inner_html($element))));
+    $text = trim(preg_replace('/\s+/', ' ', strip_tags(bac_kup_backup_inner_html($element))));
     return is_string($text) ? $text : '';
 }
 
-function bac_kup_origo_element_has_block_children(\DOMElement $element): bool
+function bac_kup_backup_element_has_block_children(\DOMElement $element): bool
 {
     foreach ($element->childNodes as $child) {
         if (!($child instanceof \DOMElement)) {
@@ -143,13 +143,13 @@ function bac_kup_origo_element_has_block_children(\DOMElement $element): bool
     return false;
 }
 
-function bac_kup_origo_widget(string $type, array $settings = []): array
+function bac_kup_backup_widget(string $type, array $settings = []): array
 {
     $settings_class = isset($settings['_css_classes']) ? (string) $settings['_css_classes'] : '';
-    $settings['_css_classes'] = bac_kup_origo_merge_classes($settings_class, 'bk-origo-widget');
+    $settings['_css_classes'] = bac_kup_backup_merge_classes($settings_class, 'bk-backup-widget');
 
     return [
-        'id' => bac_kup_origo_element_id(),
+        'id' => bac_kup_backup_element_id(),
         'elType' => 'widget',
         'widgetType' => $type,
         'isInner' => false,
@@ -158,12 +158,12 @@ function bac_kup_origo_widget(string $type, array $settings = []): array
     ];
 }
 
-function bac_kup_origo_container(array $elements, string $class_name = '', bool $is_inner = false): array
+function bac_kup_backup_container(array $elements, string $class_name = '', bool $is_inner = false): array
 {
     $is_wrap = trim($class_name) === '';
     $container_classes = $is_wrap
-        ? bac_kup_origo_merge_classes($class_name, 'bk-origo-node', 'bk-origo-wrap')
-        : bac_kup_origo_merge_classes($class_name, 'bk-origo-node');
+        ? bac_kup_backup_merge_classes($class_name, 'bk-backup-node', 'bk-backup-wrap')
+        : bac_kup_backup_merge_classes($class_name, 'bk-backup-node');
 
     $settings = [
         'content_width' => 'full',
@@ -202,7 +202,7 @@ function bac_kup_origo_container(array $elements, string $class_name = '', bool 
     }
 
     return [
-        'id' => bac_kup_origo_element_id(),
+        'id' => bac_kup_backup_element_id(),
         'elType' => 'container',
         'isInner' => $is_inner,
         'settings' => $settings,
@@ -210,23 +210,23 @@ function bac_kup_origo_container(array $elements, string $class_name = '', bool 
     ];
 }
 
-function bac_kup_origo_text_widget(string $html, string $class_name = ''): array
+function bac_kup_backup_text_widget(string $html, string $class_name = ''): array
 {
     $settings = [
         'editor' => $html,
     ];
 
-    $settings['_css_classes'] = bac_kup_origo_merge_classes($class_name, 'bk-origo-text');
+    $settings['_css_classes'] = bac_kup_backup_merge_classes($class_name, 'bk-backup-text');
 
-    return bac_kup_origo_widget('text-editor', $settings);
+    return bac_kup_backup_widget('text-editor', $settings);
 }
 
-function bac_kup_origo_convert_children(\DOMNode $parent, array $replacements, bool $is_inner = true): array
+function bac_kup_backup_convert_children(\DOMNode $parent, array $replacements, bool $is_inner = true): array
 {
     $elements = [];
 
     foreach ($parent->childNodes as $child) {
-        $converted = bac_kup_origo_convert_node($child, $replacements, $is_inner);
+        $converted = bac_kup_backup_convert_node($child, $replacements, $is_inner);
 
         if (empty($converted)) {
             continue;
@@ -247,7 +247,7 @@ function bac_kup_origo_convert_children(\DOMNode $parent, array $replacements, b
     return $elements;
 }
 
-function bac_kup_origo_convert_node(\DOMNode $node, array $replacements, bool $is_inner = true): array
+function bac_kup_backup_convert_node(\DOMNode $node, array $replacements, bool $is_inner = true): array
 {
     if ($node instanceof \DOMComment) {
         return [];
@@ -259,7 +259,7 @@ function bac_kup_origo_convert_node(\DOMNode $node, array $replacements, bool $i
             return [];
         }
 
-        return bac_kup_origo_text_widget('<p>' . esc_html($text) . '</p>');
+        return bac_kup_backup_text_widget('<p>' . esc_html($text) . '</p>');
     }
 
     if (!($node instanceof \DOMElement)) {
@@ -267,7 +267,7 @@ function bac_kup_origo_convert_node(\DOMNode $node, array $replacements, bool $i
     }
 
     $tag = strtolower($node->tagName);
-    $class_name = bac_kup_origo_class_name($node);
+    $class_name = bac_kup_backup_class_name($node);
 
     if (in_array($tag, ['script', 'style', 'noscript', 'meta', 'link'], true)) {
         return [];
@@ -275,7 +275,7 @@ function bac_kup_origo_convert_node(\DOMNode $node, array $replacements, bool $i
 
     if (in_array($tag, ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'], true)) {
         $settings = [
-            'title' => bac_kup_origo_inner_html($node),
+            'title' => bac_kup_backup_inner_html($node),
             'header_size' => $tag,
         ];
 
@@ -283,25 +283,25 @@ function bac_kup_origo_convert_node(\DOMNode $node, array $replacements, bool $i
             $settings['_css_classes'] = $class_name;
         }
 
-        return bac_kup_origo_widget('heading', $settings);
+        return bac_kup_backup_widget('heading', $settings);
     }
 
     if ($tag === 'p') {
-        return bac_kup_origo_text_widget(bac_kup_origo_outer_html($node), $class_name);
+        return bac_kup_backup_text_widget(bac_kup_backup_outer_html($node), $class_name);
     }
 
     if (in_array($tag, ['ul', 'ol', 'table', 'blockquote'], true)) {
-        return bac_kup_origo_text_widget(bac_kup_origo_outer_html($node), $class_name);
+        return bac_kup_backup_text_widget(bac_kup_backup_outer_html($node), $class_name);
     }
 
     if ($tag === 'span') {
-        return bac_kup_origo_text_widget(bac_kup_origo_outer_html($node), $class_name);
+        return bac_kup_backup_text_widget(bac_kup_backup_outer_html($node), $class_name);
     }
 
     if ($tag === 'svg') {
-        $html = strtr(bac_kup_origo_outer_html($node), $replacements);
+        $html = strtr(bac_kup_backup_outer_html($node), $replacements);
 
-        return bac_kup_origo_widget('html', [
+        return bac_kup_backup_widget('html', [
             'html' => $html,
             '_css_classes' => $class_name,
         ]);
@@ -334,16 +334,16 @@ function bac_kup_origo_convert_node(\DOMNode $node, array $replacements, bool $i
             $settings['_css_classes'] = $class_name;
         }
 
-        return bac_kup_origo_widget('image', $settings);
+        return bac_kup_backup_widget('image', $settings);
     }
 
     if ($tag === 'a') {
-        if (bac_kup_origo_is_button_anchor($node)) {
+        if (bac_kup_backup_is_button_anchor($node)) {
             $href = trim((string) $node->getAttribute('href'));
             $href = $href === '' ? '' : strtr($href, $replacements);
-            $text = bac_kup_origo_anchor_text($node);
+            $text = bac_kup_backup_anchor_text($node);
 
-            return bac_kup_origo_widget('button', [
+            return bac_kup_backup_widget('button', [
                 'text' => $text !== '' ? $text : 'Meer info',
                 'link' => [
                     'url' => $href,
@@ -355,14 +355,14 @@ function bac_kup_origo_convert_node(\DOMNode $node, array $replacements, bool $i
             ]);
         }
 
-        return bac_kup_origo_text_widget(strtr(bac_kup_origo_outer_html($node), $replacements), $class_name);
+        return bac_kup_backup_text_widget(strtr(bac_kup_backup_outer_html($node), $replacements), $class_name);
     }
 
-    if ($tag === 'div' && $class_name !== '' && !bac_kup_origo_element_has_block_children($node)) {
+    if ($tag === 'div' && $class_name !== '' && !bac_kup_backup_element_has_block_children($node)) {
         $class_l = ' ' . strtolower($class_name) . ' ';
-        $text = bac_kup_origo_anchor_text($node);
+        $text = bac_kup_backup_anchor_text($node);
         if ($text !== '' && (str_contains($class_l, ' title ') || str_contains($class_l, ' h2 ') || str_contains($class_l, ' h1 '))) {
-            return bac_kup_origo_widget('heading', [
+            return bac_kup_backup_widget('heading', [
                 'title' => esc_html($text),
                 'header_size' => str_contains($class_l, ' h1 ') ? 'h1' : (str_contains($class_l, ' h2 ') ? 'h2' : 'h3'),
                 '_css_classes' => $class_name,
@@ -371,12 +371,12 @@ function bac_kup_origo_convert_node(\DOMNode $node, array $replacements, bool $i
     }
 
     if (in_array($tag, ['section', 'div', 'article', 'main'], true)) {
-        $children = bac_kup_origo_convert_children($node, $replacements, true);
+        $children = bac_kup_backup_convert_children($node, $replacements, true);
 
         if (empty($children)) {
             if ($class_name !== '') {
-                return bac_kup_origo_widget('html', [
-                    'html' => strtr(bac_kup_origo_outer_html($node), $replacements),
+                return bac_kup_backup_widget('html', [
+                    'html' => strtr(bac_kup_backup_outer_html($node), $replacements),
                     '_css_classes' => $class_name,
                 ]);
             }
@@ -388,17 +388,17 @@ function bac_kup_origo_convert_node(\DOMNode $node, array $replacements, bool $i
             return $children[0];
         }
 
-        return bac_kup_origo_container($children, $class_name, $is_inner);
+        return bac_kup_backup_container($children, $class_name, $is_inner);
     }
 
-    $html = strtr(bac_kup_origo_outer_html($node), $replacements);
-    return bac_kup_origo_widget('html', [
+    $html = strtr(bac_kup_backup_outer_html($node), $replacements);
+    return bac_kup_backup_widget('html', [
         'html' => $html,
         '_css_classes' => $class_name,
     ]);
 }
 
-function bac_kup_origo_build_elementor_data(string $body_html, array $replacements): array
+function bac_kup_backup_build_elementor_data(string $body_html, array $replacements): array
 {
     $sections = [];
 
@@ -420,7 +420,7 @@ function bac_kup_origo_build_elementor_data(string $body_html, array $replacemen
                         continue;
                     }
 
-                    $converted = bac_kup_origo_convert_node($child, $replacements, false);
+                    $converted = bac_kup_backup_convert_node($child, $replacements, false);
                     if (empty($converted)) {
                         continue;
                     }
@@ -442,7 +442,7 @@ function bac_kup_origo_build_elementor_data(string $body_html, array $replacemen
 
                     $section_classes = '';
                     if ($child instanceof \DOMElement) {
-                        $child_classes = ' ' . bac_kup_origo_class_name($child) . ' ';
+                        $child_classes = ' ' . bac_kup_backup_class_name($child) . ' ';
                         if (str_contains($child_classes, ' hero ')) {
                             $section_classes = 'bk-top-hero-section';
                         }
@@ -461,13 +461,13 @@ function bac_kup_origo_build_elementor_data(string $body_html, array $replacemen
                     }
 
                     $sections[] = [
-                        'id' => bac_kup_origo_element_id(),
+                        'id' => bac_kup_backup_element_id(),
                         'elType' => 'section',
                         'isInner' => false,
                         'settings' => $section_settings,
                         'elements' => [
                             [
-                                'id' => bac_kup_origo_element_id(),
+                                'id' => bac_kup_backup_element_id(),
                                 'elType' => 'column',
                                 'isInner' => false,
                                 'settings' => [
@@ -485,7 +485,7 @@ function bac_kup_origo_build_elementor_data(string $body_html, array $replacemen
 
     if (empty($sections)) {
         $sections[] = [
-            'id' => bac_kup_origo_element_id(),
+            'id' => bac_kup_backup_element_id(),
             'elType' => 'section',
             'isInner' => false,
             'settings' => [
@@ -496,7 +496,7 @@ function bac_kup_origo_build_elementor_data(string $body_html, array $replacemen
             ],
             'elements' => [
                 [
-                    'id' => bac_kup_origo_element_id(),
+                    'id' => bac_kup_backup_element_id(),
                     'elType' => 'column',
                     'isInner' => false,
                     'settings' => [
@@ -504,9 +504,9 @@ function bac_kup_origo_build_elementor_data(string $body_html, array $replacemen
                         '_inline_size' => null,
                     ],
                     'elements' => [
-                        bac_kup_origo_widget('text-editor', [
+                        bac_kup_backup_widget('text-editor', [
                             'editor' => strtr($body_html, $replacements),
-                            '_css_classes' => 'bk-origo-block',
+                            '_css_classes' => 'bk-backup-block',
                         ]),
                     ],
                 ],
@@ -517,7 +517,7 @@ function bac_kup_origo_build_elementor_data(string $body_html, array $replacemen
     return $sections;
 }
 
-function bac_kup_origo_extract_body(string $raw_html): string
+function bac_kup_backup_extract_body(string $raw_html): string
 {
     $body = '';
     if (preg_match('~<body[^>]*>(.*)</body>~is', $raw_html, $body_match)) {
@@ -532,7 +532,7 @@ function bac_kup_origo_extract_body(string $raw_html): string
     return is_string($body) ? trim($body) : '';
 }
 
-function bac_kup_origo_extract_css(string $raw_html): string
+function bac_kup_backup_extract_css(string $raw_html): string
 {
     $custom_css = '';
     if (preg_match_all('~<style[^>]*>(.*?)</style>~is', $raw_html, $css_matches)) {
@@ -542,7 +542,7 @@ function bac_kup_origo_extract_css(string $raw_html): string
     return is_string($custom_css) ? trim($custom_css) : '';
 }
 
-function bac_kup_origo_sanitize_element_settings(array &$node): void
+function bac_kup_backup_sanitize_element_settings(array &$node): void
 {
     if (!isset($node['settings']) || !is_array($node['settings'])) {
         return;
@@ -581,29 +581,29 @@ function bac_kup_origo_sanitize_element_settings(array &$node): void
     }
 }
 
-function bac_kup_origo_sanitize_elementor_tree(array &$nodes): void
+function bac_kup_backup_sanitize_elementor_tree(array &$nodes): void
 {
     foreach ($nodes as &$node) {
         if (!is_array($node)) {
             continue;
         }
 
-        bac_kup_origo_sanitize_element_settings($node);
+        bac_kup_backup_sanitize_element_settings($node);
 
         if (isset($node['elements']) && is_array($node['elements'])) {
-            bac_kup_origo_sanitize_elementor_tree($node['elements']);
+            bac_kup_backup_sanitize_elementor_tree($node['elements']);
         }
     }
     unset($node);
 }
 
-function bac_kup_origo_import_execute(bool $force = false): void
+function bac_kup_backup_import_execute(bool $force = false): void
 {
-    if (!$force && get_option('bac_kup_origo_imported') === '1') {
+    if (!$force && get_option('bac_kup_backup_imported') === '1') {
         return;
     }
 
-    $source_dir = WP_CONTENT_DIR . '/origo-source/pages';
+    $source_dir = WP_CONTENT_DIR . '/backup-source/pages';
     if (!is_dir($source_dir)) {
         return;
     }
@@ -621,12 +621,12 @@ function bac_kup_origo_import_execute(bool $force = false): void
         }
     }
 
-    if (wp_get_theme('bac-kup-origo')->exists()) {
-        switch_theme('bac-kup-origo');
+    if (wp_get_theme('bac-kup-backup')->exists()) {
+        switch_theme('bac-kup-backup');
     }
 
-    $map = bac_kup_origo_map();
-    $replacements = bac_kup_origo_url_replacements();
+    $map = bac_kup_backup_map();
+    $replacements = bac_kup_backup_url_replacements();
     $home_page_id = 0;
 
     foreach ($map as $file => $page) {
@@ -640,15 +640,15 @@ function bac_kup_origo_import_execute(bool $force = false): void
             continue;
         }
 
-        $body = bac_kup_origo_extract_body($raw_html);
+        $body = bac_kup_backup_extract_body($raw_html);
         if ($body === '') {
             continue;
         }
 
         $body = strtr($body, $replacements);
-        $custom_css = bac_kup_origo_extract_css($raw_html);
-        $elementor_data = bac_kup_origo_build_elementor_data($body, $replacements);
-        bac_kup_origo_sanitize_elementor_tree($elementor_data);
+        $custom_css = bac_kup_backup_extract_css($raw_html);
+        $elementor_data = bac_kup_backup_build_elementor_data($body, $replacements);
+        bac_kup_backup_sanitize_elementor_tree($elementor_data);
 
         $existing = get_page_by_path($page['slug'], OBJECT, 'page');
         $postarr = [
@@ -694,7 +694,7 @@ function bac_kup_origo_import_execute(bool $force = false): void
     flush_rewrite_rules(false);
 
     update_option('blogdescription', 'Procesregie voor verzuim | MKB');
-    update_option('bac_kup_origo_imported', '1');
+    update_option('bac_kup_backup_imported', '1');
 
     // Clear generated CSS so Elementor regenerates after structural changes.
     $css_dir = WP_CONTENT_DIR . '/uploads/elementor/css';
@@ -709,7 +709,7 @@ function bac_kup_origo_import_execute(bool $force = false): void
     }
 }
 
-function bac_kup_origo_replace_in_value($value, array $search, array $replace, int &$replacements)
+function bac_kup_backup_replace_in_value($value, array $search, array $replace, int &$replacements)
 {
     if (is_string($value)) {
         $value = str_replace($search, $replace, $value, $count);
@@ -719,14 +719,14 @@ function bac_kup_origo_replace_in_value($value, array $search, array $replace, i
 
     if (is_array($value)) {
         foreach ($value as $key => $item) {
-            $value[$key] = bac_kup_origo_replace_in_value($item, $search, $replace, $replacements);
+            $value[$key] = bac_kup_backup_replace_in_value($item, $search, $replace, $replacements);
         }
         return $value;
     }
 
     if (is_object($value)) {
         foreach ($value as $key => $item) {
-            $value->$key = bac_kup_origo_replace_in_value($item, $search, $replace, $replacements);
+            $value->$key = bac_kup_backup_replace_in_value($item, $search, $replace, $replacements);
         }
         return $value;
     }
@@ -734,9 +734,9 @@ function bac_kup_origo_replace_in_value($value, array $search, array $replace, i
     return $value;
 }
 
-function bac_kup_origo_button_link_replacements(): array
+function bac_kup_backup_button_link_replacements(): array
 {
-    $replacements = bac_kup_origo_url_replacements();
+    $replacements = bac_kup_backup_url_replacements();
     $portal_url = home_url('/portal/inschrijven.php');
 
     $replacements['/portal/inschrijven.php'] = $portal_url;
@@ -749,11 +749,11 @@ function bac_kup_origo_button_link_replacements(): array
     return $replacements;
 }
 
-function bac_kup_origo_fix_button_links_in_database(): array
+function bac_kup_backup_fix_button_links_in_database(): array
 {
     global $wpdb;
 
-    $map = bac_kup_origo_button_link_replacements();
+    $map = bac_kup_backup_button_link_replacements();
     $search = array_keys($map);
     $replace = array_values($map);
     $needles = [
@@ -804,9 +804,9 @@ function bac_kup_origo_fix_button_links_in_database(): array
 
     foreach ($post_rows as $row) {
         $count = 0;
-        $new_title = bac_kup_origo_replace_in_value($row['post_title'], $search, $replace, $count);
-        $new_excerpt = bac_kup_origo_replace_in_value($row['post_excerpt'], $search, $replace, $count);
-        $new_content = bac_kup_origo_replace_in_value($row['post_content'], $search, $replace, $count);
+        $new_title = bac_kup_backup_replace_in_value($row['post_title'], $search, $replace, $count);
+        $new_excerpt = bac_kup_backup_replace_in_value($row['post_excerpt'], $search, $replace, $count);
+        $new_content = bac_kup_backup_replace_in_value($row['post_content'], $search, $replace, $count);
 
         if ($count > 0) {
             $wpdb->update(
@@ -836,7 +836,7 @@ function bac_kup_origo_fix_button_links_in_database(): array
         $count = 0;
         $raw = $row['meta_value'];
         $value = maybe_unserialize($raw);
-        $new_value = bac_kup_origo_replace_in_value($value, $search, $replace, $count);
+        $new_value = bac_kup_backup_replace_in_value($value, $search, $replace, $count);
         $new_raw = maybe_serialize($new_value);
 
         if ($count > 0 && $new_raw !== $raw) {
@@ -863,7 +863,7 @@ function bac_kup_origo_fix_button_links_in_database(): array
         $count = 0;
         $raw = $row['option_value'];
         $value = maybe_unserialize($raw);
-        $new_value = bac_kup_origo_replace_in_value($value, $search, $replace, $count);
+        $new_value = bac_kup_backup_replace_in_value($value, $search, $replace, $count);
         $new_raw = maybe_serialize($new_value);
 
         if ($count > 0 && $new_raw !== $raw) {
@@ -886,11 +886,11 @@ function bac_kup_origo_fix_button_links_in_database(): array
     return $report;
 }
 
-function bac_kup_origo_replace_branding_in_database(): array
+function bac_kup_backup_replace_branding_in_database(): array
 {
     global $wpdb;
 
-    $search = ['Origo', 'ORIGO', 'origo', 'origo.care', '@origo.care'];
+    $search = ['Backup', 'Backup', 'Backup', 'backup.care', '@backup.care'];
     $replace = ['Necmar', 'NECMAR', 'necmar', 'necmar.care', '@necmar.care'];
 
     $report = [
@@ -903,23 +903,23 @@ function bac_kup_origo_replace_branding_in_database(): array
     $post_rows = $wpdb->get_results(
         "SELECT ID, post_title, post_excerpt, post_content
          FROM {$wpdb->posts}
-         WHERE post_title LIKE '%Origo%'
-            OR post_excerpt LIKE '%Origo%'
-            OR post_content LIKE '%Origo%'
-            OR post_title LIKE '%origo%'
-            OR post_excerpt LIKE '%origo%'
-            OR post_content LIKE '%origo%'
-            OR post_content LIKE '%origo.care%'
-            OR post_excerpt LIKE '%origo.care%'
-            OR post_title LIKE '%origo.care%'",
+         WHERE post_title LIKE '%Backup%'
+            OR post_excerpt LIKE '%Backup%'
+            OR post_content LIKE '%Backup%'
+            OR post_title LIKE '%Backup%'
+            OR post_excerpt LIKE '%Backup%'
+            OR post_content LIKE '%Backup%'
+            OR post_content LIKE '%backup.care%'
+            OR post_excerpt LIKE '%backup.care%'
+            OR post_title LIKE '%backup.care%'",
         ARRAY_A
     );
 
     foreach ($post_rows as $row) {
         $count = 0;
-        $new_title = bac_kup_origo_replace_in_value($row['post_title'], $search, $replace, $count);
-        $new_excerpt = bac_kup_origo_replace_in_value($row['post_excerpt'], $search, $replace, $count);
-        $new_content = bac_kup_origo_replace_in_value($row['post_content'], $search, $replace, $count);
+        $new_title = bac_kup_backup_replace_in_value($row['post_title'], $search, $replace, $count);
+        $new_excerpt = bac_kup_backup_replace_in_value($row['post_excerpt'], $search, $replace, $count);
+        $new_content = bac_kup_backup_replace_in_value($row['post_content'], $search, $replace, $count);
 
         if ($count > 0) {
             $wpdb->update(
@@ -941,9 +941,9 @@ function bac_kup_origo_replace_branding_in_database(): array
     $meta_rows = $wpdb->get_results(
         "SELECT meta_id, meta_value
          FROM {$wpdb->postmeta}
-         WHERE meta_value LIKE '%Origo%'
-            OR meta_value LIKE '%origo%'
-            OR meta_value LIKE '%origo.care%'",
+         WHERE meta_value LIKE '%Backup%'
+            OR meta_value LIKE '%Backup%'
+            OR meta_value LIKE '%backup.care%'",
         ARRAY_A
     );
 
@@ -951,7 +951,7 @@ function bac_kup_origo_replace_branding_in_database(): array
         $count = 0;
         $raw = $row['meta_value'];
         $value = maybe_unserialize($raw);
-        $new_value = bac_kup_origo_replace_in_value($value, $search, $replace, $count);
+        $new_value = bac_kup_backup_replace_in_value($value, $search, $replace, $count);
         $new_raw = maybe_serialize($new_value);
 
         if ($count > 0 && $new_raw !== $raw) {
@@ -970,9 +970,9 @@ function bac_kup_origo_replace_branding_in_database(): array
     $option_rows = $wpdb->get_results(
         "SELECT option_id, option_value
          FROM {$wpdb->options}
-         WHERE option_value LIKE '%Origo%'
-            OR option_value LIKE '%origo%'
-            OR option_value LIKE '%origo.care%'",
+         WHERE option_value LIKE '%Backup%'
+            OR option_value LIKE '%Backup%'
+            OR option_value LIKE '%backup.care%'",
         ARRAY_A
     );
 
@@ -980,7 +980,7 @@ function bac_kup_origo_replace_branding_in_database(): array
         $count = 0;
         $raw = $row['option_value'];
         $value = maybe_unserialize($raw);
-        $new_value = bac_kup_origo_replace_in_value($value, $search, $replace, $count);
+        $new_value = bac_kup_backup_replace_in_value($value, $search, $replace, $count);
         $new_raw = maybe_serialize($new_value);
 
         if ($count > 0 && $new_raw !== $raw) {
@@ -1009,29 +1009,31 @@ add_action('admin_init', function (): void {
     }
 
     $force = isset($_GET['bac_kup_rebuild_widgets']) && $_GET['bac_kup_rebuild_widgets'] === '1';
-    bac_kup_origo_import_execute($force);
+    bac_kup_backup_import_execute($force);
 
     if (get_option('bac_kup_fix_button_links_done') !== '1') {
-        $auto_link_report = bac_kup_origo_fix_button_links_in_database();
+        $auto_link_report = bac_kup_backup_fix_button_links_in_database();
         update_option('bac_kup_fix_button_links_report', $auto_link_report, false);
         update_option('bac_kup_fix_button_links_done', '1', false);
     }
 
-    $replace = isset($_GET['bac_kup_replace_origo']) && $_GET['bac_kup_replace_origo'] === '1';
+    $replace = isset($_GET['bac_kup_replace_backup']) && $_GET['bac_kup_replace_backup'] === '1';
     if ($replace) {
-        $report = bac_kup_origo_replace_branding_in_database();
-        update_option('bac_kup_replace_origo_report', $report, false);
+        $report = bac_kup_backup_replace_branding_in_database();
+        update_option('bac_kup_replace_backup_report', $report, false);
 
-        $link_report = bac_kup_origo_fix_button_links_in_database();
+        $link_report = bac_kup_backup_fix_button_links_in_database();
         update_option('bac_kup_fix_button_links_report', $link_report, false);
         update_option('bac_kup_fix_button_links_done', '1', false);
-        delete_option('bac_kup_origo_imported');
+        delete_option('bac_kup_backup_imported');
     }
 
     $fix_links = isset($_GET['bac_kup_fix_button_links']) && $_GET['bac_kup_fix_button_links'] === '1';
     if ($fix_links) {
-        $link_report = bac_kup_origo_fix_button_links_in_database();
+        $link_report = bac_kup_backup_fix_button_links_in_database();
         update_option('bac_kup_fix_button_links_report', $link_report, false);
         update_option('bac_kup_fix_button_links_done', '1', false);
     }
 });
+
+

@@ -19,7 +19,7 @@ if (!defined('ABSPATH')) {
       <img class="nav-logo-img" src="<?php echo esc_url(bac_kup_logo_url()); ?>" alt="Bac-kup">
     </a>
     <ul class="nav-links" role="list">
-      <?php foreach (bac_kup_origo_pages() as $page) : ?>
+      <?php foreach (bac_kup_backup_pages() as $page) : ?>
         <?php $active = bac_kup_is_current_slug($page['slug']); ?>
         <li>
           <a href="<?php echo esc_url($page['url']); ?>"<?php echo $active ? ' class="active" aria-current="page"' : ''; ?>><?php echo esc_html($page['label']); ?></a>
@@ -41,7 +41,7 @@ if (!defined('ABSPATH')) {
   <div class="mob-overlay" id="mobOverlay"></div>
   <div class="mob-panel">
     <ul class="mob-links" role="list">
-      <?php foreach (bac_kup_origo_pages() as $page) : ?>
+      <?php foreach (bac_kup_backup_pages() as $page) : ?>
         <?php $active = bac_kup_is_current_slug($page['slug']); ?>
         <li>
           <a href="<?php echo esc_url($page['url']); ?>"<?php echo $active ? ' class="active" aria-current="page"' : ''; ?>>
@@ -59,3 +59,4 @@ if (!defined('ABSPATH')) {
   </div>
 </div>
 <?php endif; ?>
+

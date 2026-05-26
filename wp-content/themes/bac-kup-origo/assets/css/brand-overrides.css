@@ -133,7 +133,7 @@ body.elementor-page {
   padding: 0 !important;
 }
 
-.elementor .bk-origo-node.e-con {
+.elementor [class*="bk-"][class*="-node"].e-con {
   --padding-top: 0;
   --padding-right: 0;
   --padding-bottom: 0;
@@ -144,7 +144,7 @@ body.elementor-page {
   min-width: 0;
 }
 
-.elementor .bk-origo-widget > .elementor-widget-container {
+.elementor [class*="bk-"][class*="-widget"] > .elementor-widget-container {
   margin: 0;
   padding: 0;
 }
@@ -680,7 +680,7 @@ body.page-id-5 .plan-name {
 /* Plus/procesregie badge: class exists on Elementor widget wrapper and <p>.
    Reset wrapper, style only the <p> so it stays compact (not full width). */
 body.page-id-5 .elementor-widget.plan-eye,
-body.page-id-5 .plan-eye.bk-origo-widget {
+body.page-id-5 .plan-eye[class*="-widget"] {
   width: auto !important;
   max-width: fit-content !important;
   min-width: 0 !important;
@@ -1264,3 +1264,4 @@ body.page-id-11 .success {
     padding: 1.6rem;
   }
 }
+

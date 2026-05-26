@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bac-kup — Procesregie voor verzuim | MKB</title>
+<meta name="description" content="Strakke procesregie voor verzuim in het MKB. Vaste maandprijzen vanaf €65. Geen medische data, transparante werkwijze en heldere arts-route via BAC.">
+<meta name="robots" content="index, follow">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<link rel="canonical" href="https://bac-kup.care/">
+<link rel="icon" type="image/png" href="/img/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
+<link rel="shortcut icon" href="/img/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Bac-kup" />
+<link rel="manifest" href="/img/site.webmanifest" />
+<!-- Open Graph -->
+<meta property="og:site_name" content="Bac-kup">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bac-kup.care/">
+<meta property="og:title" content="Bac-kup — Procesregie voor verzuim | MKB">
+<meta property="og:description" content="Strakke procesregie voor verzuim in het MKB. Vaste maandprijzen vanaf €65. Geen medische data, transparante werkwijze en heldere arts-route via BAC.">
+<meta property="og:image" content="https://bac-kup.care/og-image.png">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bac-kup — Procesregie voor verzuim | MKB">
+<meta name="twitter:description" content="Strakke procesregie voor verzuim in het MKB. Vaste maandprijzen vanaf €65. Geen medische data.">
+<meta name="twitter:image" content="https://bac-kup.care/og-image.png">
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* ── ANNOUNCE BANNER ── */
+.banner {
+  background: linear-gradient(90deg, var(--teal) 0%, var(--green-mid) 100%);
+  padding: .7rem var(--px);
+  display: flex; align-items: center; justify-content: center;
+  gap: .85rem; flex-wrap: wrap; text-align: center;
+}
+.banner p  { font-size: .8rem; color: rgba(255,255,255,.9); }
+.banner strong { color: #fff; }
+.banner a  {
+  background: rgba(255,255,255,.18); color: #fff;
+  padding: 3px 14px; border-radius: 100px;
+  font-size: .75rem; font-weight: 600; text-decoration: none;
+  border: 1px solid rgba(255,255,255,.3); transition: background .2s;
+  white-space: nowrap; -webkit-tap-highlight-color: transparent;
+}
+.banner a:hover { background: rgba(255,255,255,.3); }
+
+/* ── HERO ── */
+.hero {
+  background: var(--green);
+  min-height: calc(100vh - var(--nav-h) - 2.4rem); /* minus banner */
+  display: flex; align-items: center;
+  padding: 80px var(--px) 72px;
+  position: relative; overflow: hidden;
+}
+.hero-circles {
+  position: absolute; inset: 0; pointer-events: none;
+}
+.hero-grid {
+  max-width: var(--max-w); margin: 0 auto; width: 100%;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4.5rem; align-items: center;
+  position: relative; z-index: 1;
+}
+.hero-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(168,212,204,.1); border: 1px solid rgba(168,212,204,.22);
+  padding: 5px 14px; border-radius: 100px; margin-bottom: 1.2rem;
+  font-size: .66rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--mint);
+}
+.hero-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal-lt); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.5)} }
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.1rem,4.5vw,3.5rem); font-weight: 900;
+  color: #fff; line-height: 1.1; margin-bottom: 1rem;
+}
+.hero h1 em { font-style: normal; color: var(--mint); display: block; }
+.hero-sub { font-size: .94rem; color: rgba(255,255,255,.62); line-height: 1.8; margin-bottom: 1.5rem; max-width: 430px; }
+.hero-checks { list-style: none; margin-bottom: 2rem; display: flex; flex-direction: column; gap: .55rem; }
+.hero-checks li { display: flex; align-items: flex-start; gap: 10px; font-size: .85rem; color: rgba(255,255,255,.78); line-height: 1.5; }
+.hero-checks li svg { flex-shrink: 0; margin-top: 2px; color: var(--teal-lt); }
+.hero-btns { display: flex; gap: .8rem; flex-wrap: wrap; }
+
+/* Hero right: photo with floating card */
+.hero-visual { position: relative; padding: 16px 16px 32px 0; }
+.hero-img {
+  border-radius: 20px; overflow: hidden; aspect-ratio: 4/3;
+  box-shadow: 0 32px 80px rgba(0,0,0,.32);
+  border: 1px solid rgba(168,212,204,.12);
+}
+.hero-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-float {
+  position: absolute; bottom: 0; left: -16px;
+  background: #fff; border-radius: 16px;
+  padding: .9rem 1.2rem; box-shadow: 0 8px 32px rgba(30,61,47,.2);
+  display: flex; align-items: center; gap: 10px;
+}
+.hf-icon { width: 34px; height: 34px; border-radius: 9px; background: var(--mint-pale); display: flex; align-items: center; justify-content: center; color: var(--teal); flex-shrink: 0; }
+.hf-num  { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--ink); line-height: 1; }
+.hf-lbl  { font-size: .62rem; color: var(--ink-lt); text-transform: uppercase; letter-spacing: .07em; }
+
+/* ── SERVICES ── */
+.services { background: var(--cream); }
+.svc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.4rem; margin-top: 2.5rem; }
+.svc-card {
+  background: var(--white); border-radius: var(--r); overflow: hidden;
+  border: 1px solid rgba(168,212,204,.22); box-shadow: var(--shadow-xs);
+  display: flex; flex-direction: column;
+  transition: transform .25s, box-shadow .25s;
+}
+.svc-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.svc-img { height: 176px; overflow: hidden; flex-shrink: 0; }
+.svc-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .45s ease; }
+.svc-card:hover .svc-img img { transform: scale(1.04); }
+.svc-body { padding: 1.4rem; display: flex; flex-direction: column; flex: 1; }
+.svc-icon { width: 38px; height: 38px; border-radius: 10px; background: var(--mint-pale); display: flex; align-items: center; justify-content: center; color: var(--teal); margin-bottom: .85rem; }
+.svc-icon svg { width: 18px; height: 18px; }
+.svc-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: .4rem; }
+.svc-text  { font-size: .8rem; color: var(--ink-lt); line-height: 1.7; flex: 1; margin-bottom: 1rem; }
+.svc-link  { display: inline-flex; align-items: center; gap: 5px; font-size: .79rem; font-weight: 600; color: var(--teal); text-decoration: none; }
+.svc-link svg { width: 12px; height: 12px; transition: transform .2s; }
+.svc-link:hover svg { transform: translateX(3px); }
+
+/* ── VOOR WIE ── */
+.voorwie { background: var(--white); }
+.vw-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+
+.vw-img-wrap { position: relative; border-radius: var(--r); overflow: hidden; aspect-ratio: 3/4; box-shadow: var(--shadow); }
+.vw-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+.vw-img-tag {
+  position: absolute; bottom: 1.2rem; inset-inline: 1.2rem;
+  background: rgba(30,61,47,.88); backdrop-filter: blur(8px);
+  border-radius: 12px; padding: .85rem 1rem;
+  display: flex; align-items: center; gap: 10px;
+}
+.vw-img-tag svg { color: var(--mint); flex-shrink: 0; }
+.vw-img-tag-text { font-size: .78rem; color: rgba(255,255,255,.9); line-height: 1.4; }
+.vw-img-tag-text strong { color: var(--mint); display: block; font-size: .68rem; margin-bottom: 1px; }
+
+.vw-list { list-style: none; margin: 1.5rem 0; display: flex; flex-direction: column; gap: .7rem; }
+.vw-list li { display: flex; align-items: flex-start; gap: 11px; padding: .8rem .95rem; border-radius: var(--r-sm); background: var(--mint-pale); border-left: 3px solid var(--teal); font-size: .86rem; color: var(--ink-mid); line-height: 1.5; }
+.vw-list li svg { flex-shrink: 0; color: var(--teal); margin-top: 1px; }
+
+.vw-boxes { display: flex; flex-direction: column; gap: .85rem; }
+.vw-box { border-radius: 15px; padding: 1.4rem 1.6rem; }
+.vw-box.yes { background: var(--green); }
+.vw-box.no  { background: var(--cream); border: 1px solid rgba(168,212,204,.28); }
+.vw-box-lbl { font-size: .58rem; font-weight: 700; text-transform: uppercase; letter-spacing: .14em; margin-bottom: .85rem; }
+.vw-box.yes .vw-box-lbl { color: var(--teal-lt); }
+.vw-box.no  .vw-box-lbl { color: var(--ink-lt); }
+.vw-box ul { list-style: none; display: flex; flex-direction: column; gap: .48rem; }
+.vw-box ul li { display: flex; align-items: flex-start; gap: 8px; font-size: .82rem; line-height: 1.5; }
+.vw-box.yes ul li { color: rgba(255,255,255,.82); }
+.vw-box.no  ul li { color: var(--ink-mid); }
+.vw-box ul li svg { flex-shrink: 0; margin-top: 2px; }
+.vw-box.yes ul li svg { color: var(--mint); }
+.vw-box.no  ul li svg { color: var(--danger); }
+
+/* ── WHY Bac-kup ── */
+.why { background: var(--green); }
+.why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 3rem; }
+.why-img { border-radius: var(--r); overflow: hidden; aspect-ratio: 16/11; box-shadow: 0 24px 64px rgba(0,0,0,.32); }
+.why-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.stat-box { background: rgba(255,255,255,.05); border: 1px solid rgba(168,212,204,.12); border-radius: 15px; padding: 1.4rem; }
+.stat-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 900; color: var(--mint); line-height: 1; margin-bottom: .25rem; }
+.stat-lbl { font-size: .76rem; color: rgba(255,255,255,.46); line-height: 1.45; }
+.why-list { list-style: none; display: flex; flex-direction: column; gap: .8rem; margin-top: 1.6rem; }
+.why-list li { display: flex; gap: 11px; align-items: flex-start; font-size: .86rem; color: rgba(255,255,255,.75); line-height: 1.55; }
+.why-list li svg { flex-shrink: 0; color: var(--teal-lt); margin-top: 2px; }
+.why-btns { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 2rem; }
+
+/* ── PROOF STRIP ── */
+.proof { background: var(--mint-pale); }
+.proof-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.3rem; margin-top: 2.5rem; }
+.proof-item { background: var(--white); border-radius: 14px; padding: 1.4rem; border: 1px solid rgba(168,212,204,.28); display: flex; gap: 1rem; align-items: flex-start; }
+.proof-item svg { flex-shrink: 0; color: var(--teal); margin-top: 2px; }
+.proof-title { font-size: .85rem; font-weight: 700; color: var(--ink); margin-bottom: .25rem; }
+.proof-text  { font-size: .77rem; color: var(--ink-lt); line-height: 1.6; }
+
+/* ── CTA BAND ── */
+.cta-band { background: var(--teal); padding: 56px var(--px); text-align: center; }
+.cta-band h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem,3vw,2.1rem); font-weight: 700; color: #fff; margin-bottom: .6rem; }
+.cta-band p { font-size: .92rem; color: rgba(255,255,255,.72); margin-bottom: 2rem; }
+.cta-band-btns { display: flex; justify-content: center; gap: .8rem; flex-wrap: wrap; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 0; }
+  .hero-visual { display: none; }
+  .vw-grid  { grid-template-columns: 1fr; }
+  .vw-img-wrap { aspect-ratio: 16/9; }
+  .why-grid { grid-template-columns: 1fr; }
+  .why-img  { aspect-ratio: 16/9; }
+  .svc-grid, .proof-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .hero { padding: 52px var(--px) 60px; min-height: auto; }
+  .hero h1 { font-size: clamp(1.85rem,6vw,2.5rem); }
+  .svc-grid, .proof-grid { grid-template-columns: 1fr; }
+  .stat-grid { grid-template-columns: 1fr 1fr; }
+  .cta-band { padding: 48px var(--px); }
+}
+@media (max-width: 480px) {
+  .hero-btns, .why-btns, .cta-band-btns { flex-direction: column; align-items: stretch; }
+  .stat-box { padding: 1.1rem; }
+  .stat-num { font-size: 1.8rem; }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://bac-kup.care/#organization",
+      "name": "Bac-kup B.V.",
+      "url": "https://bac-kup.care/",
+      "logo": "https://bac-kup.care/logo.png",
+      "email": "originele@bac-kup.care",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Anne Frankstraat 35",
+        "postalCode": "2548LA",
+        "addressLocality": "'s-Gravenhage",
+        "addressCountry": "NL"
+      },
+      "sameAs": ["https://bac-kup.care"],
+      "description": "Procesregie voor verzuim in het MKB. Vast abonnement per medewerker. Geen medische data."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://bac-kup.care/#website",
+      "url": "https://bac-kup.care/",
+      "name": "Bac-kup",
+      "publisher": { "@id": "https://bac-kup.care/#organization" },
+      "inLanguage": "nl-NL"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- ANNOUNCE BANNER -->
+<div class="banner" role="note">
+  <p><strong>Introductieaanbieding:</strong> Eerste consult (30 min video) tegen gereduceerd tarief — 1× per nieuwe klant.</p>
+  <a href="contact.html">Meer info</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" aria-label="Hero">
+  <svg class="hero-circles" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <circle cx="950" cy="350" r="400" fill="none" stroke="rgba(168,212,204,.055)" stroke-width="1"/>
+    <circle cx="950" cy="350" r="270" fill="none" stroke="rgba(168,212,204,.04)"  stroke-width="1"/>
+    <circle cx="70"  cy="70"  r="190" fill="none" stroke="rgba(168,212,204,.04)"  stroke-width="1"/>
+  </svg>
+  <div class="hero-grid">
+    <div>
+      <div class="hero-pill" aria-hidden="true"><div class="hero-dot"></div>Procesregie voor MKB</div>
+      <h1>Verzuimproces strak<em>geregeld voor MKB</em></h1>
+      <p class="hero-sub">Abonnement voor procesregie en structuur. Medische consulten via BAC/arts-route. Geen onnodige lagen.</p>
+      <ul class="hero-checks" role="list">
+        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Vaste maandprijs: €65, €99 of €150 op basis van bedrijfsgrootte</li>
+        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Heldere werkwijze, vaste templates en overzicht</li>
+        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Plus: reminders op procesmijlpalen + maandelijkse update</li>
+        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Direct contact met bedrijfsarts — geen onnodige schijven</li>
+      </ul>
+      <div class="hero-btns">
+        <a href="contact.html" class="btn btn-teal">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l.92-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Vraag offerte
+        </a>
+        <a href="contact.html" class="btn btn-outline">Plan kennismaking</a>
+      </div>
+    </div>
+    <!-- Right: photo card (hidden on mobile) -->
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-img">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&q=80&auto=format&fit=crop" alt="" loading="eager" width="900" height="675">
+      </div>
+      <div class="hero-float">
+        <div class="hf-icon">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <div class="hf-num">0%</div>
+          <div class="hf-lbl">Medische data bij Bac-kup</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="wrap">
+    <div class="eyebrow">Onze diensten</div>
+    <h2 class="h2">Alles wat u nodig heeft</h2>
+    <div class="svc-grid">
+      <article class="svc-card reveal d1">
+        <div class="svc-img">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=75&auto=format&fit=crop" alt="Laptop met procesoverzicht" loading="lazy" width="600" height="400">
+        </div>
+        <div class="svc-body">
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <div class="svc-title">Abonnementen</div>
+          <p class="svc-text">Vaste maandprijs op basis van bedrijfsgrootte: €65, €99 of €150 per maand. Procesmatig, niet-medisch, geen verborgen kosten.</p>
+          <a href="abonnementen.html" class="svc-link">Bekijk abonnementen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </article>
+      <article class="svc-card reveal d2">
+        <div class="svc-img">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=75&auto=format&fit=crop" alt="Modern kantoor werkwijze" loading="lazy" width="600" height="400">
+        </div>
+        <div class="svc-body">
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <div class="svc-title">Werkwijze</div>
+          <p class="svc-text">Kort, voorspelbaar en schaalbaar. Vaste templates en mijlpalen — Bac-kup bewaakt het proces.</p>
+          <a href="werkwijze.html" class="svc-link">Lees werkwijze <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </article>
+      <article class="svc-card reveal d3">
+        <div class="svc-img">
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=75&auto=format&fit=crop&crop=top" alt="Medische arts consultatie" loading="lazy" width="600" height="400">
+        </div>
+        <div class="svc-body">
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+          <div class="svc-title">Basiscontract &amp; arts-route</div>
+          <p class="svc-text">Medische consulten via BAC. Maatwerk of vangnet — afhankelijk van uw situatie.</p>
+          <a href="artsroute.html" class="svc-link">Lees meer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- VOOR WIE -->
+<section class="voorwie">
+  <div class="wrap">
+    <div class="vw-grid">
+      <div class="vw-img-wrap reveal">
+        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=700&q=80&auto=format&fit=crop" alt="MKB-werkgever aan het werk" loading="lazy" width="700" height="933">
+        <div class="vw-img-tag" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          <div class="vw-img-tag-text"><strong>Voor MKB-werkgevers</strong>Van 2 tot 50+ medewerkers — helder en schaalbaar</div>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow">Voor wie</div>
+        <h2 class="h2">Speciaal voor werkgevers die helderheid willen</h2>
+        <p class="lead">Bac-kup is er voor werkgevers die een strak proces willen, zonder dure pakketten waar u geen gebruik van maakt.</p>
+        <ul class="vw-list" role="list">
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>MKB met ± 2–50 medewerkers</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Kleine werkgevers — ook DGA met personeel / micro-teams</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Werkgevers die transparante afspraken willen</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>ZZP'ers met personeel (kleine werkgever)</li>
+        </ul>
+        <div class="vw-boxes">
+          <div class="vw-box yes">
+            <div class="vw-box-lbl">Wij doen wél</div>
+            <ul role="list">
+              <li><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Procesoverzicht, planning en opvolging</li>
+              <li><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Templates en vaste werkwijze</li>
+              <li><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Reminders op procesmijlpalen + maandelijkse update (Plus)</li>
+            </ul>
+          </div>
+          <div class="vw-box no">
+            <div class="vw-box-lbl">Wij doen niét</div>
+            <ul role="list">
+              <li><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Klassiek casemanagement namens u</li>
+              <li><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>UWV-dossieropbouw namens u</li>
+              <li><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Medische inhoud verwerken</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY Bac-kup -->
+<section class="why">
+  <div class="wrap">
+    <div class="eyebrow light">Waarom Bac-kup</div>
+    <h2 class="h2 white">Helder, schaalbaar, betrouwbaar</h2>
+    <div class="why-grid">
+      <div class="why-img reveal">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80&auto=format&fit=crop" alt="Professioneel team samenwerking" loading="lazy" width="800" height="550">
+      </div>
+      <div>
+        <div class="stat-grid">
+          <div class="stat-box"><div class="stat-num">€65</div><div class="stat-lbl">Vanaf per maand — 1–5 medewerkers</div></div>
+          <div class="stat-box"><div class="stat-num">2 wdg</div><div class="stat-lbl">Gegarandeerde reactietijd e-mail</div></div>
+          <div class="stat-box"><div class="stat-num">0%</div><div class="stat-lbl">Medische gegevens bij Bac-kup</div></div>
+          <div class="stat-box"><div class="stat-num">MKB</div><div class="stat-lbl">Ontworpen voor 2–50+ medewerkers</div></div>
+        </div>
+        <ul class="why-list" role="list">
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Vaste templates + vaste mijlpalen — geen ruis</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Heldere scope — geen medische data in Bac-kup</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>Plus: 1× per maand feitelijke procesupdate</li>
+        </ul>
+        <div class="why-btns">
+          <a href="contact.html" class="btn btn-teal">Vraag offerte</a>
+          <a href="abonnementen.html" class="btn btn-outline">Bekijk abonnementen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="proof">
+  <div class="wrap">
+    <div class="eyebrow">Praktisch &amp; controleerbaar</div>
+    <h2 class="h2">Proces-proof</h2>
+    <div class="proof-grid">
+      <div class="proof-item reveal d1">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        <div><div class="proof-title">Vaste templates</div><p class="proof-text">Vaste templates + vaste mijlpalen — geen ruis in het proces.</p></div>
+      </div>
+      <div class="proof-item reveal d2">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <div><div class="proof-title">Maandelijkse update (Plus)</div><p class="proof-text">1× per maand feitelijke procesupdate — geen medische informatie.</p></div>
+      </div>
+      <div class="proof-item reveal d3">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div><div class="proof-title">Heldere scope</div><p class="proof-text">Geen medische gegevens in Bac-kup — privacy en AVG geborgd.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <h2>Klaar om te starten?</h2>
+  <p>Plan een vrijblijvende kennismaking of vraag direct een offerte aan.</p>
+  <div class="cta-band-btns">
+    <a href="contact.html" class="btn btn-dark">Plan kennismaking</a>
+    <a href="abonnementen.html" class="btn" style="background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.35)">Bekijk abonnementen</a>
+  </div>
+</section>
+
+<script src="shared.js"></script>
+</body>
+</html>

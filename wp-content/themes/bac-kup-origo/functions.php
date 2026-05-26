@@ -12,7 +12,7 @@ add_action('after_setup_theme', function (): void {
     remove_filter('the_excerpt', 'wpautop');
 });
 
-function bac_kup_origo_pages(): array
+function bac_kup_backup_pages(): array
 {
     return [
         'home' => [
@@ -149,7 +149,7 @@ function bac_kup_build_global_header_elementor_data(): array
     ], 'nav-logo');
 
     $nav_items = [];
-    foreach (bac_kup_origo_pages() as $page) {
+    foreach (bac_kup_backup_pages() as $page) {
         $nav_items[] = bac_kup_widget('text-editor', [
             'editor' => '<a href="' . esc_url($page['url']) . '">' . esc_html($page['label']) . '</a>',
             '_css_classes' => 'bk-nav-item',
@@ -166,7 +166,7 @@ function bac_kup_build_global_header_elementor_data(): array
     ]);
 
     $mob_links = '';
-    foreach (bac_kup_origo_pages() as $page) {
+    foreach (bac_kup_backup_pages() as $page) {
         $mob_links .= '<li><a href="' . esc_url($page['url']) . '">' . esc_html($page['label']) . '<svg class="arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></li>';
     }
 
@@ -364,23 +364,23 @@ add_action('wp_enqueue_scripts', function (): void {
     );
 
     wp_enqueue_style(
-        'bac-kup-origo-shared',
-        get_template_directory_uri() . '/assets/css/origo-shared.css',
+        'bac-kup-backup-shared',
+        get_template_directory_uri() . '/assets/css/backup-shared.css',
         ['bac-kup-fonts'],
-        filemtime(get_template_directory() . '/assets/css/origo-shared.css')
+        filemtime(get_template_directory() . '/assets/css/backup-shared.css')
     );
 
     wp_enqueue_style(
-        'bac-kup-origo-legal',
-        get_template_directory_uri() . '/assets/css/origo-legal.css',
-        ['bac-kup-origo-shared'],
-        filemtime(get_template_directory() . '/assets/css/origo-legal.css')
+        'bac-kup-backup-legal',
+        get_template_directory_uri() . '/assets/css/backup-legal.css',
+        ['bac-kup-backup-shared'],
+        filemtime(get_template_directory() . '/assets/css/backup-legal.css')
     );
 
     wp_enqueue_style(
         'bac-kup-brand-overrides',
         get_template_directory_uri() . '/assets/css/brand-overrides.css',
-        ['bac-kup-origo-shared'],
+        ['bac-kup-backup-shared'],
         filemtime(get_template_directory() . '/assets/css/brand-overrides.css')
     );
 
@@ -422,7 +422,7 @@ add_action('admin_notices', function (): void {
         return;
     }
 
-    if (get_option('bac_kup_origo_imported') !== '1') {
+    if (get_option('bac_kup_backup_imported') !== '1') {
         echo '<div class="notice notice-warning"><p><strong>Bac-kup:</strong> de Bac-kup import is nog niet uitgevoerd. Ga naar een willekeurige admin pagina om de MU-plugin de import te laten doen.</p></div>';
     }
 
@@ -439,3 +439,4 @@ add_action('admin_notices', function (): void {
         echo '<div class="notice notice-info"><p><strong>Bac-kup:</strong> ' . implode(' | ', $items) . '</p></div>';
     }
 });
+

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Over ons | Het team achter Bac-kup</title>
+<meta name="description" content="Bac-kup is een MKB-gerichte organisatie voor procesregie bij verzuim. Transparant, procesgedreven en zonder medische data. Maak kennis met ons team en onze missie.">
+<meta name="robots" content="index, follow">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<link rel="canonical" href="https://bac-kup.care/overons.html">
+<link rel="icon" type="image/png" href="/img/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
+<link rel="shortcut icon" href="/img/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Bac-kup" />
+<link rel="manifest" href="/img/site.webmanifest" />
+<meta property="og:site_name" content="Bac-kup">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bac-kup.care/overons.html">
+<meta property="og:title" content="Over ons | Het team achter Bac-kup">
+<meta property="og:description" content="Bac-kup is een MKB-gerichte organisatie voor procesregie bij verzuim. Transparant, procesgedreven en zonder medische data.">
+<meta property="og:image" content="https://bac-kup.care/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Over ons | Het team achter Bac-kup">
+<meta name="twitter:description" content="Maak kennis met het team achter Bac-kup. MKB-gerichte procesregie bij verzuim, transparant en zonder medische data.">
+<meta name="twitter:image" content="https://bac-kup.care/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap">
+<link rel="stylesheet" href="shared.css">
+<style>
+.mission { background:var(--white); }
+.mission-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+.mission-img { border-radius:var(--r); overflow:hidden; aspect-ratio:4/3; box-shadow:var(--shadow); }
+.mission-img img { width:100%; height:100%; object-fit:cover; display:block; }
+.mv-items { display:flex; flex-direction:column; gap:.85rem; margin-top:2rem; }
+.mv-item { display:flex; gap:13px; align-items:flex-start; padding:1.1rem 1.3rem; background:var(--mint-pale); border-radius:13px; border-left:3px solid var(--teal); }
+.mv-item svg { flex-shrink:0; color:var(--teal); margin-top:2px; }
+.mv-title { font-weight:700; font-size:.88rem; color:var(--ink); margin-bottom:.15rem; }
+.mv-text  { font-size:.8rem; color:var(--ink-mid); line-height:1.55; }
+
+.stats { background:var(--green); }
+.stats-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.1rem; margin-top:2.5rem; }
+.stat-box { background:rgba(255,255,255,.055); border:1px solid rgba(168,212,204,.12); border-radius:15px; padding:1.5rem; }
+.stat-n { font-family:"Playfair Display",serif; font-size:2.3rem; font-weight:900; color:var(--mint); line-height:1; margin-bottom:.25rem; }
+.stat-l { font-size:.76rem; color:rgba(255,255,255,.46); line-height:1.45; }
+
+.team-sec { background:var(--cream); }
+.team-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:1.1rem; margin-top:3rem; }
+.team-card { background:var(--white); border-radius:var(--r-sm); padding:1.5rem 1rem; text-align:center; border:1px solid rgba(168,212,204,.22); transition:transform .25s,box-shadow .25s,border-color .25s; }
+.team-card:hover { transform:translateY(-4px); box-shadow:var(--shadow); border-color:rgba(61,140,122,.28); }
+.team-av { width:54px; height:54px; border-radius:50%; margin:0 auto .9rem; display:flex; align-items:center; justify-content:center; font-family:"Playfair Display",serif; font-size:1.2rem; font-weight:700; }
+.team-role { font-size:.6rem; text-transform:uppercase; letter-spacing:.12em; font-weight:700; color:var(--teal); margin-bottom:.25rem; line-height:1.4; }
+.team-name { font-size:.8rem; font-weight:600; color:var(--ink); }
+
+.bac-sec2 { background:var(--green); }
+.bac-p { list-style:none; display:flex; flex-direction:column; gap:.8rem; margin-top:2rem; }
+.bac-p li { display:flex; gap:11px; align-items:flex-start; background:rgba(255,255,255,.05); border:1px solid rgba(168,212,204,.1); border-radius:12px; padding:1rem 1.2rem; font-size:.86rem; color:rgba(255,255,255,.78); line-height:1.5; }
+.bac-p li svg { flex-shrink:0; color:var(--mint); margin-top:2px; }
+
+@media(max-width:1024px){ .team-grid{grid-template-columns:repeat(3,1fr)} }
+@media(max-width:768px){ .mission-grid{grid-template-columns:1fr} .mission-img{aspect-ratio:16/9} .stats-grid{grid-template-columns:1fr 1fr} .team-grid{grid-template-columns:repeat(2,1fr)} }
+@media(max-width:480px){ .team-grid{grid-template-columns:1fr 1fr} }
+</style>
+</head>
+<body>
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="ph-eye">Ons verhaal</p>
+    <h1>Over <em>Bac-kup</em></h1>
+    <p class="page-hero-lead">Bac-kup is opgezet voor werkgevers die een strak proces willen, zonder onnodige lagen. We combineren procesregie met een arts-route voor medische consulten.</p>
+  </div>
+</div>
+
+<section class="mission">
+  <div class="wrap">
+    <div class="mission-grid">
+      <div class="mission-img reveal">
+        <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80&auto=format&fit=crop" alt="Professioneel kantoor Bac-kup" loading="lazy" width="800" height="600">
+      </div>
+      <div>
+        <div class="eyebrow">Onze missie</div>
+        <h2 class="h2">Strak proces, zonder onnodige lagen</h2>
+        <p class="lead">Bac-kup combineert procesregie met een arts-route voor medische consulten. Voor vangnet werken we samen met gecertificeerde arbodiensten.</p>
+        <div class="mv-items">
+          <div class="mv-item reveal d1"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><div><div class="mv-title">Transparantie</div><p class="mv-text">Heldere tarieven, geen verborgen kosten, duidelijke scope.</p></div></div>
+          <div class="mv-item reveal d2"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg><div><div class="mv-title">Procesgedreven</div><p class="mv-text">Vaste werkwijze, templates en mijlpalen — altijd voorspelbaar.</p></div></div>
+          <div class="mv-item reveal d3"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><div><div class="mv-title">MKB-gericht</div><p class="mv-text">Speciaal ontworpen voor werkgevers van 2 tot 50+ medewerkers.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap">
+    <div class="eyebrow light">In cijfers</div>
+    <h2 class="h2 white">Bac-kup op een rij</h2>
+    <div class="stats-grid">
+      <div class="stat-box reveal d1"><div class="stat-n">€65</div><p class="stat-l">Vanaf per maand — vaste maandprijs</p></div>
+      <div class="stat-box reveal d2"><div class="stat-n">2 wdg</div><p class="stat-l">Maximale reactietijd e-mail</p></div>
+      <div class="stat-box reveal d3"><div class="stat-n">0%</div><p class="stat-l">Medische gegevens verwerkt door Bac-kup</p></div>
+      <div class="stat-box reveal d4"><div class="stat-n">MKB</div><p class="stat-l">Ontworpen voor 2–50+ medewerkers</p></div>
+    </div>
+  </div>
+</section>
+<script src="shared.js"></script>
+</body></html>

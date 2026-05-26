@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarieven BAC | Bedrijfsarts uurtarieven — Bac-kup</title>
+<meta name="description" content="Transparante uurtarieven per kwartier: bedrijfsarts €235/uur, bedrijfsarts i.o. €199/uur. Eerste kennismaking (30 min) op gereduceerd tarief. Verrekend met Bac-kup-abonnement.">
+<meta name="robots" content="index, follow">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<link rel="canonical" href="https://bac-kup.care/tarieven.html">
+<link rel="icon" type="image/png" href="/img/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
+<link rel="shortcut icon" href="/img/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Bac-kup" />
+<link rel="manifest" href="/img/site.webmanifest" />
+<meta property="og:site_name" content="Bac-kup">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bac-kup.care/tarieven.html">
+<meta property="og:title" content="Tarieven BAC | Bedrijfsarts uurtarieven — Bac-kup">
+<meta property="og:description" content="Transparante uurtarieven per kwartier: bedrijfsarts €235/uur, bedrijfsarts i.o. €199/uur. Eerste kennismaking op gereduceerd tarief.">
+<meta property="og:image" content="https://bac-kup.care/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tarieven BAC | Bedrijfsarts uurtarieven — Bac-kup">
+<meta name="twitter:description" content="Transparante BAC-tarieven per kwartier. Bedrijfsarts €235/uur, i.o. €199/uur. Eerste kennismaking gereduceerd.">
+<meta name="twitter:image" content="https://bac-kup.care/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap">
+<link rel="stylesheet" href="shared.css">
+<style>
+.rates-sec { background:var(--white); }
+.rates-layout { display:grid; grid-template-columns:240px 1fr; gap:3.5rem; align-items:start; margin-top:3rem; }
+.rate-cards { display:flex; flex-direction:column; gap:1rem; }
+.rate-card { background:var(--cream); border-radius:var(--r-sm); padding:1.5rem; border:1px solid rgba(168,212,204,.28); transition:border-color .2s; }
+.rate-card:hover { border-color:rgba(61,140,122,.35); }
+.rate-card.hi { background:var(--green); border-color:transparent; }
+.rate-role { font-size:.62rem; font-weight:700; text-transform:uppercase; letter-spacing:.13em; margin-bottom:.35rem; }
+.rate-card:not(.hi) .rate-role { color:var(--teal); }
+.rate-card.hi .rate-role { color:var(--teal-lt); }
+.rate-n { font-family:"Playfair Display",serif; font-size:2rem; font-weight:900; line-height:1; margin-bottom:.2rem; }
+.rate-card:not(.hi) .rate-n { color:var(--ink); }
+.rate-card.hi .rate-n { color:var(--mint); }
+.rate-u { font-size:.72rem; }
+.rate-card:not(.hi) .rate-u { color:var(--ink-lt); }
+.rate-card.hi .rate-u { color:rgba(255,255,255,.4); }
+.rate-note { font-size:.7rem; margin-top:.35rem; }
+.rate-card:not(.hi) .rate-note { color:var(--ink-lt); }
+.rate-card.hi .rate-note { color:rgba(255,255,255,.45); }
+
+.act-table { width:100%; border-collapse:collapse; }
+.act-table th { text-align:left; font-size:.67rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-lt); padding-bottom:.85rem; border-bottom:1.5px solid rgba(168,212,204,.28); }
+.act-table th:last-child { text-align:right; }
+.act-table td { padding:.72rem 0; font-size:.86rem; color:var(--ink-mid); border-bottom:1px solid rgba(168,212,204,.12); line-height:1.4; }
+.act-table td:last-child { text-align:right; font-weight:600; color:var(--teal); white-space:nowrap; padding-left:1rem; }
+.time-note { display:flex; align-items:center; gap:8px; margin-top:1.1rem; font-size:.78rem; color:var(--ink-lt); background:var(--mint-pale); border-radius:10px; padding:.65rem .95rem; }
+.time-note svg { color:var(--teal); flex-shrink:0; width:14px; height:14px; }
+
+.intro-band { background:linear-gradient(135deg,var(--teal),var(--green-mid)); border-radius:var(--r); padding:1.8rem 2.2rem; margin-top:2.5rem; display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; }
+.ib-text strong { color:#fff; display:block; font-size:.95rem; margin-bottom:.3rem; }
+.ib-text p { font-size:.85rem; color:rgba(255,255,255,.8); }
+
+.rules-sec { background:var(--cream); }
+.rules-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.3rem; margin-top:2.5rem; }
+.rule { background:var(--white); border-radius:15px; padding:1.7rem; border:1px solid rgba(168,212,204,.24); }
+.rule-icon { width:42px; height:42px; border-radius:11px; background:var(--mint-pale); display:flex; align-items:center; justify-content:center; color:var(--teal); margin-bottom:1rem; }
+.rule-icon svg { width:19px; height:19px; }
+.rule-title { font-weight:700; font-size:.88rem; color:var(--ink); margin-bottom:.45rem; }
+.rule-text  { font-size:.8rem; color:var(--ink-lt); line-height:1.65; }
+
+@media(max-width:900px){ .rates-layout{grid-template-columns:1fr} .rules-grid{grid-template-columns:1fr 1fr} }
+@media(max-width:600px){ .rules-grid{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="ph-eye">Medische consulten</p>
+    <h1>Tarieven <em>(BAC)</em></h1>
+    <p class="page-hero-lead">Transparante uurtarieven per 15 minuten. Introductieaanbieding: eerste consult 30 min (video) tegen gereduceerd tarief — 1× per nieuwe klant.</p>
+  </div>
+</div>
+
+<section class="rates-sec">
+  <div class="wrap">
+    <div class="eyebrow">Uurtarieven</div>
+    <h2 class="h2">Wat kost een consult?</h2>
+    <div class="rates-layout">
+      <div class="rate-cards">
+        <div class="rate-card hi reveal d1"><p class="rate-role">Bedrijfsarts</p><div class="rate-n">€235</div><p class="rate-u">per uur (excl. btw)</p></div>
+        <div class="rate-card reveal d2"><p class="rate-role">Bedrijfsarts i.o.</p><div class="rate-n">€199</div><p class="rate-u">per uur (excl. btw)</p><p class="rate-note">Altijd onder supervisie</p></div>
+        <div class="rate-card reveal d3"><p class="rate-role">Overige artsen</p><div class="rate-n">€175</div><p class="rate-u">per uur (excl. btw)</p></div>
+      </div>
+      <div>
+        <table class="act-table" aria-label="Veelvoorkomende activiteiten">
+          <thead><tr><th>Activiteit</th><th>Duur</th></tr></thead>
+          <tbody>
+            <tr><td>Eerste consult + probleemanalyse + terugkoppeling</td><td>60 min</td></tr>
+            <tr><td>Vervolgconsult + terugkoppeling</td><td>30–45 min</td></tr>
+            <tr><td>Extra overleg werknemer–arts</td><td>15 min</td></tr>
+            <tr><td>Extra overleg werkgever–arts</td><td>15 min</td></tr>
+            <tr><td>Dossierbeoordeling</td><td>60 min</td></tr>
+            <tr><td>(Bij)stellen IZP</td><td>60 min</td></tr>
+            <tr><td>Bijstellen plan van aanpak</td><td>30 min</td></tr>
+            <tr><td>Medische info opvragen</td><td>15 min</td></tr>
+            <tr><td>Medische info beoordelen</td><td>15–30 min</td></tr>
+            <tr><td>WIA-ondersteuning</td><td>90–95 min</td></tr>
+            <tr><td>Conflictenbegeleiding</td><td>60 min</td></tr>
+            <tr><td>Spoedconsult</td><td>60 min</td></tr>
+          </tbody>
+        </table>
+        <div class="time-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Tijdseenheden: per 15 minuten. Bovenstaande duren zijn indicatief.</div>
+        <div class="intro-band">
+          <div class="ib-text"><strong>Introductieaanbieding — nieuwe klanten</strong><p>Eerste consult 30 min (video) tegen gereduceerd tarief. Eenmalig. Prijs op aanvraag.</p></div>
+          <a href="contact.html" class="btn btn-dark">Vraag tarief op</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="rules-sec">
+  <div class="wrap">
+    <div class="eyebrow">Regels &amp; afspraken</div>
+    <h2 class="h2">No-show, reistijd &amp; annuleren</h2>
+    <div class="rules-grid">
+      <div class="rule reveal d1"><div class="rule-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></div><div class="rule-title">No-show / annuleren</div><p class="rule-text">Annuleren binnen 24 uur: consultkosten worden in rekening gebracht. Geldt voor werkgever en werknemer.</p></div>
+      <div class="rule reveal d2"><div class="rule-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div class="rule-title">Fysiek &amp; video</div><p class="rule-text">Annuleringskosten gelden voor zowel fysieke consulten als video- en telefonische afspraken.</p></div>
+      <div class="rule reveal d3"><div class="rule-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg></div><div class="rule-title">Reistijd</div><p class="rule-text">Alleen bij fysieke consulten op locatie werkgever. Niet bij video/telefoon of consult op locatie arts.</p></div>
+    </div>
+  </div>
+</section>
+<script src="shared.js"></script>
+</body></html>
