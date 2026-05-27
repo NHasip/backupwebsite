@@ -1540,3 +1540,140 @@ body.page-id-11 .success {
   }
 }
 
+/* Contact fallback selectors (works even if page-id differs on production) */
+.contact-sec .wrap.e-con {
+  width: 100% !important;
+  max-width: 1160px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 56px !important;
+  padding-right: 56px !important;
+}
+
+.contact-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1.55fr !important;
+  gap: 3.25rem !important;
+  align-items: start !important;
+}
+
+.ci-items {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1rem !important;
+  margin-top: 0.4rem !important;
+}
+
+.ci-item,
+.ci-note,
+.form-check {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 0.85rem !important;
+}
+
+.ci-icon {
+  width: 42px !important;
+  height: 42px !important;
+  flex: 0 0 42px !important;
+  border-radius: 12px !important;
+}
+
+.form-card {
+  border-radius: 22px !important;
+  padding: 2.15rem !important;
+}
+
+.form-row {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 1rem !important;
+}
+
+.fg {
+  margin-bottom: 0.95rem !important;
+}
+
+.fg input,
+.fg select,
+.fg textarea,
+.fg .elementor-field,
+.fg .elementor-widget-container {
+  width: 100% !important;
+}
+
+.fg input,
+.fg select,
+.fg textarea {
+  border-radius: 12px !important;
+  border: 1px solid rgba(26, 53, 45, 0.16) !important;
+  background: #fff !important;
+  color: var(--ink) !important;
+  padding: 0.8rem 0.95rem !important;
+  min-height: 50px !important;
+  line-height: 1.4 !important;
+}
+
+.fg textarea {
+  min-height: 132px !important;
+  resize: vertical !important;
+}
+
+.fg input:focus,
+.fg select:focus,
+.fg textarea:focus {
+  border-color: rgba(61, 140, 122, 0.55) !important;
+  box-shadow: 0 0 0 3px rgba(168, 212, 204, 0.35) !important;
+  outline: none !important;
+}
+
+button.btn-submit,
+.btn-submit .elementor-button,
+.btn-submit.elementor-widget-button .elementor-button {
+  width: 100% !important;
+  min-height: 52px !important;
+  border-radius: 999px !important;
+  display: inline-flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.success {
+  text-align: center !important;
+  padding: 1.2rem 0.2rem !important;
+}
+
+@media (max-width: 1024px) {
+  .contact-sec .wrap.e-con {
+    max-width: 100% !important;
+    padding-left: 28px !important;
+    padding-right: 28px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .contact-grid,
+  .form-row {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .contact-sec .wrap.e-con {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .form-card {
+    padding: 1.5rem !important;
+    border-radius: 16px !important;
+  }
+
+  .fg input,
+  .fg select,
+  .fg textarea {
+    min-height: 48px !important;
+    padding: 0.74rem 0.88rem !important;
+  }
+}
+
