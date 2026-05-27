@@ -48,18 +48,24 @@
     });
   }
 
-  const io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.07 });
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.07 });
 
-  document.querySelectorAll('.reveal').forEach(function (el) {
-    io.observe(el);
-  });
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      io.observe(el);
+    });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      el.classList.add('visible');
+    });
+  }
 
   window.tog = function (btn) {
     const item = btn.closest('.faq-item');
@@ -72,7 +78,7 @@
 
     document.querySelectorAll('.faq-item.open').forEach(function (openItem) {
       const openAnswer = openItem.querySelector('.faq-a');
-      const openButton = openItem.querySelector('.faq-q');
+      const openButton = openItem.querySelector('button.faq-q');
       openItem.classList.remove('open');
       if (openAnswer) {
         openAnswer.hidden = true;
@@ -93,13 +99,18 @@
 
   document.querySelectorAll('.faq-item').forEach(function (item) {
     const answer = item.querySelector('.faq-a');
-    const button = item.querySelector('.faq-q');
+    const button = item.querySelector('button.faq-q');
     item.classList.remove('open');
     if (answer) {
       answer.hidden = true;
     }
     if (button) {
+      button.setAttribute('type', 'button');
       button.setAttribute('aria-expanded', 'false');
+      button.removeAttribute('onclick');
+      button.addEventListener('click', function () {
+        window.tog(button);
+      });
     }
   });
 

@@ -1107,9 +1107,11 @@ body.page-id-10 .page-hero-inner,
 body.page-id-10 .faq-sec .wrap.e-con,
 body.page-id-10 .faq-cta .wrap.e-con {
   width: 100% !important;
-  max-width: var(--max-w) !important;
+  max-width: 1160px !important;
   margin-left: auto !important;
   margin-right: auto !important;
+  padding-left: 56px !important;
+  padding-right: 56px !important;
 }
 
 body.page-id-10 .page-hero-lead {
@@ -1117,7 +1119,7 @@ body.page-id-10 .page-hero-lead {
 }
 
 body.page-id-10 .faq-list {
-  max-width: 740px;
+  max-width: 860px;
   margin: 3rem auto 0;
   display: flex;
   flex-direction: column;
@@ -1126,6 +1128,15 @@ body.page-id-10 .faq-list {
 
 body.page-id-10 .faq-item {
   border-bottom: 1px solid rgba(168,212,204,.22);
+}
+
+body.page-id-10 .faq-item button.faq-q {
+  width: 100% !important;
+  border: 0 !important;
+  outline: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
 }
 
 body.page-id-10 .faq-q.elementor-widget-html,
@@ -1142,6 +1153,11 @@ body.page-id-10 .faq-q .faq-q {
   text-align: left;
   padding: 1.1rem 0;
   line-height: 1.45;
+}
+
+body.page-id-10 .faq-q .faq-q:focus,
+body.page-id-10 .faq-q .faq-q:focus-visible {
+  outline: none !important;
 }
 
 body.page-id-10 .faq-a {
@@ -1169,6 +1185,7 @@ body.page-id-10 .faq-cta .btn-row .elementor-widget-button {
   body.page-id-10 .page-hero-inner,
   body.page-id-10 .faq-sec .wrap.e-con,
   body.page-id-10 .faq-cta .wrap.e-con {
+    max-width: 100% !important;
     padding-left: 28px !important;
     padding-right: 28px !important;
   }
